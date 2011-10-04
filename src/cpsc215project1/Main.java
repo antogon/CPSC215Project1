@@ -1,9 +1,5 @@
 package cpsc215project1;
 
-/**
- *
- * @author amalvag
- */
 public class Main {
 
     /**
