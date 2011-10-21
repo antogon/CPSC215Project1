@@ -16,41 +16,60 @@ public class Target implements AdventureTarget {
 
 	private String myName;
 	private String myDesc;
-	private ArrayList<String> myCanBe;
-	private HashMap<String, String> myCanDo;
+	private ArrayList<String> myIndirectObjectProperties;
+		// things you can do WITH the Target instance
+	private HashMap<String, String> myDirectObjectProperties;
+		// things you can do TO the Target instance
+	private ArrayList<String> myAliases;
+		// list of words that could also refer to this instance
 
-	public Target(String name, String desc, ArrayList<String> cb,
-			HashMap<String, String> cd) {
+	/**
+	 * Default constructor for the <code>Target</code> class.
+	 * @param name given name, or short description, of the <code>Target</code>
+	 * @param desc a longer description of the <code>Target</code>
+	 * @param indirectObjectProperties list of verbs you can do <b>with</b> the
+	 * <code>Target</code> instance.
+	 * @param directObjectProperties !?!?!?!?
+	 * @param aliases list of words that could refer to this <code>Target</code>
+	 * instance. <code>name</code> needs not be included in this list.
+	 */
+	public Target(String name, String desc, ArrayList<String> indirectObjectProperties,
+			HashMap<String, String> directObjectProperties, ArrayList<String> aliases) {
 
-		this.myName = name;
-		this.myDesc = desc;
-		this.myCanBe = cb;
-		this.myCanDo = cd;
+		myName = name;
+		myDesc = desc;
+		myIndirectObjectProperties = indirectObjectProperties;
+		myDirectObjectProperties = directObjectProperties;
+		myAliases = aliases;
 
 	}
 
-	/** ==== FROM SUPERCLASS ====
-     * <p>Returns <code>true</code> if the given <code>text</code> is a valid
-     * name for this target.  Used by the <code>Parser</code> to map textual
-     * names to game objects.  As an example, a target representing a stone
-     * gargoyle might be able to be referred to as a "gargoyle" or a "statue".
-     * </p>
+	/** <p>Returns <code>true</code> if <code>text</code> is either the <code>
+	 * name</code> of the Target or any element in ArrayList <code>aliases
+	 * </code>, both of which are supplied to the constructor.</p>
      *
      * @param text The text given by the user to refer to some object.
-     *    Guaranteed to be non-null.
-     *
-     * @return <code>true</code> if this target may be referred to by the given
+     *    Guaranteed to be non-<code>null</code>.
+     * @return <code>true</code> if this <code>target</code> may be referred to by the given
      *    text.
      */
     public boolean canBeReferredToAs(String text) {
-		// TODO: Add some logic to iterate through a list
-		return (text.equals(myName));
+		return ( text.equals(myName) || myAliases.contains(text) );
 	}
 
+	/**
+	 * Returns the <code>Target</code>'s name.
+	 * @return <code>name</code> of the object as supplied in the constructor.
+	 */
 	public String getShortDescription() {
 		return myName;
 	}
 
+	/**
+	 * Returns the <code>Target</code>'s description.
+	 * @return the description of the object as supplied in the constructor as
+	 * <code>desc</code>.
+	 */
 	public String getDescription() {
 		return myDesc;
 	}
@@ -83,11 +102,17 @@ public class Target implements AdventureTarget {
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException {
 		throw new UnsupportedOperationException("Not supported yet.");
+
+
+
 	}
 
 	public void doCommandWith(AdventureCommand c,
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException {
-		throw new UnsupportedOperationException("Not supported yet.");
+		// throw new UnsupportedOperationException("Not supported yet.");
+		if(!myIndirectObjectProperties.contains(c.getVerb()) ){
+			throw new DoNotUnderstandException(c);
+		}
 	}
 }
