@@ -1,8 +1,48 @@
 <Game>
-	<Location>
-		<Item name="Sword">
+	<Location
+		name="Room"
+		desc="This is a room."
+	>
+		<Item
+			name="Sword"
+			desc="A shiny new broadsword."
+			canDo="hit=>damage, strike=>damage, drop=>drop, take=>take"
+			canBe="damage, drop, take"
+		>
 		</Item>
-		<Item name="Stone">
+		<Person
+			name="Bob Marley"
+			desc="A rather shaggy man with an interesting smell."
+			gender="male"
+			canDo="talk=>speak, speak=>speak"
+			canBe="damage, speak"
+		>
+		</Person>
+		<Portal
+			name="Door"
+			desc="A run-down looking wooden door with broken hinges."
+			canDo="open=>open, close=>close, enter=>Dungeon"
+			canBe="open, close"
+		>
+		</Portal>
+	</Location>
+	<Location
+		name="Dungeon"
+		desc="The walls are smelly and damp."
+	>
+		<Item
+			name="Rock"
+			desc="A large, damp boulder."
+			canDo="hit=>damage, strike=>damage, drop=>drop, take=>take"
+			canBe="damage, drop, take"
+		>
 		</Item>
+		<Portal
+			name="Door"
+			desc="A run-down looking wooden door with broken hinges."
+			canDo="open=>open, close=>close, enter=>Room"
+			canBe="open, close"
+		>
+		</Portal>
 	</Location>
 </Game>

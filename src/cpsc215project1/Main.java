@@ -4,6 +4,7 @@ package cpsc215project1;
  *
  * @author amalvag
  */
+import edu.clemson.cs.hamptos.adventure.*;
 public class Main {
 
     /**
@@ -18,5 +19,8 @@ public class Main {
         /*
          *  END GameReader test
          */
+	Location init = new Location("Room", "This is a room.");
+	MyParser parse = new MyParser();
+	AdventureWindow w = new AdventureWindow(init, parse);
     }
 }

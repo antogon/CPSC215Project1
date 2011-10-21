@@ -1,6 +1,7 @@
 package cpsc215project1;
 
 import java.util.Set;
+import java.util.HashSet;
 import edu.clemson.cs.hamptos.adventure.*;
 
 public class Location implements AdventureLocation {
@@ -12,14 +13,15 @@ public class Location implements AdventureLocation {
     public Location(String name, String desc) {
         myName = name;
         myDescription = desc;
+		myLocalTargets = new HashSet<AdventureTarget>();
     }
 
     public void addLocalTarget(AdventureTarget t) {
+		myLocalTargets.add(t);
     }
 
     public boolean containsLocalTarget(AdventureTarget t) {
-        throw new UnsupportedOperationException(
-                "Operation not implemented");
+		return myLocalTargets.contains(t);
     }
 
     public void doCommand(
@@ -33,10 +35,15 @@ public class Location implements AdventureLocation {
     }
 
     public Set<AdventureTarget> getLocalTargets() {
-        throw new UnsupportedOperationException(
-                "Operation not implemented");
+		return myLocalTargets;
     }
 
     public void removeLocalTarget(AdventureTarget t) {
+		myLocalTargets.remove(t);
     }
+
+	public String getName()
+	{
+		return myName;
+	}
 }
