@@ -12,13 +12,13 @@ import java.util.HashMap;
  *
  * @author David Cohen
  */
-public class Target implements AdventureTarget {
+public abstract class Target implements AdventureTarget {
 
 	private String myName;
 	private String myDesc;
-	private ArrayList<String> myIndirectObjectProperties;
+	private ArrayList<String> myIndirectObjectCommands;
 		// things you can do WITH the Target instance
-	private HashMap<String, String> myDirectObjectProperties;
+	private HashMap<String, String> myDirectObjectCommands;
 		// things you can do TO the Target instance
 	private ArrayList<String> myAliases;
 		// list of words that could also refer to this instance
@@ -27,19 +27,19 @@ public class Target implements AdventureTarget {
 	 * Default constructor for the <code>Target</code> class.
 	 * @param name given name, or short description, of the <code>Target</code>
 	 * @param desc a longer description of the <code>Target</code>
-	 * @param indirectObjectProperties list of verbs you can do <b>with</b> the
+	 * @param indirectObjCmds list of verbs you can do <b>with</b> the
 	 * <code>Target</code> instance.
-	 * @param directObjectProperties !?!?!?!?
+	 * @param directObjCmds !?!?!?!?
 	 * @param aliases list of words that could refer to this <code>Target</code>
 	 * instance. <code>name</code> needs not be included in this list.
 	 */
-	public Target(String name, String desc, ArrayList<String> indirectObjectProperties,
-			HashMap<String, String> directObjectProperties, ArrayList<String> aliases) {
+	public Target(String name, String desc, ArrayList<String> indirectObjCmds,
+			HashMap<String, String> directObjCmds, ArrayList<String> aliases) {
 
 		myName = name;
 		myDesc = desc;
-		myIndirectObjectProperties = indirectObjectProperties;
-		myDirectObjectProperties = directObjectProperties;
+		myIndirectObjectCommands = indirectObjCmds;
+		myDirectObjectCommands = directObjCmds;
 		myAliases = aliases;
 
 	}
@@ -97,22 +97,24 @@ public class Target implements AdventureTarget {
      * @throws DoNotUnderstandException If this target does not know how to
      *    process the given command.
      */
-	public void doCommandTo(
+	public abstract void doCommandTo(
 			AdventureCommand c,
 			AdventureEngine e,
-			AdventureWindow w) throws DoNotUnderstandException {
-		throw new UnsupportedOperationException("Not supported yet.");
+			AdventureWindow w) throws DoNotUnderstandException;
 
-
-
-	}
-
-	public void doCommandWith(AdventureCommand c,
+	public abstract void doCommandWith(AdventureCommand c,
+			AdventureEngine e,
+			AdventureWindow w) throws DoNotUnderstandException;
+/*	public abstract void doCommandWith(AdventureCommand c,
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException {
 		// throw new UnsupportedOperationException("Not supported yet.");
-		if(!myIndirectObjectProperties.contains(c.getVerb()) ){
+		if(!myIndirectObjectCommands.contains(c.getVerb()) )
 			throw new DoNotUnderstandException(c);
-		}
+
+
+
 	}
+*/
+
 }
