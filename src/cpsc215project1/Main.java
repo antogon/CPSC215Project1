@@ -19,7 +19,7 @@ public class Main {
         /*
          *  END GameReader test
          */
-	Location init = new Location("Room", "This is a room.");
+	AdventureLocation init = game.getInitialLocation();
 	MyParser parse = new MyParser();
 	AdventureWindow w = new AdventureWindow(init, parse);
     }

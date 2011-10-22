@@ -2,6 +2,7 @@
 	<Location
 		name="Room"
 		desc="This is a room."
+
 	>
 		<Item
 			name="Sword"
@@ -29,6 +30,7 @@
 	<Location
 		name="Dungeon"
 		desc="The walls are smelly and damp."
+                isInit="ersgrtfvwa"
 	>
 		<Item
 			name="Rock"
