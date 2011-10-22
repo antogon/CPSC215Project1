@@ -105,16 +105,4 @@ public abstract class Target implements AdventureTarget {
 	public abstract void doCommandWith(AdventureCommand c,
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException;
-/*	public abstract void doCommandWith(AdventureCommand c,
-			AdventureEngine e,
-			AdventureWindow w) throws DoNotUnderstandException {
-		// throw new UnsupportedOperationException("Not supported yet.");
-		if(!myIndirectObjectCommands.contains(c.getVerb()) )
-			throw new DoNotUnderstandException(c);
-
-
-
-	}
-*/
-
 }
