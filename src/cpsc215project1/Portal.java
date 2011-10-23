@@ -14,6 +14,8 @@ import edu.clemson.cs.hamptos.adventure.*;
  */
 public class Portal extends Target {
 
+    private boolean isOpen = false;
+
     public Portal(String name, String desc, ArrayList<String> b, HashMap<String, String> d, ArrayList<String> a) {
 		super(name, desc, b, d, a);
     }
@@ -27,13 +29,27 @@ public class Portal extends Target {
         if(canBe && key.equals("examine")){
             new ExamineStrategy().doCommand(c,e,w);
         }
+        else if(canBe && key.equals("open")){
+            isOpen=true;
+        }
+        else if(canBe && key.equals("close")){
+            isOpen=false;
+        }
         else
         {
             for(Location l : ((Location)e.getPlayerLocation()).getWorld())
             {
                 if(l.getName().equals(key))
                 {
-                    e.setPlayerLocation(l);
+                    if(isOpen)
+                    {
+                        e.setPlayerLocation(l);
+                    }
+                    else
+                    {
+                        w.println(myName + " is closed.  You try to enter it" +
+                                " and fail dismally, hitting your head.");
+                    }
                     break;
                 }
             }

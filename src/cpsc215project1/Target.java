@@ -40,6 +40,7 @@ public abstract class Target implements AdventureTarget {
 
 		myName = name;
 		myDesc = desc;
+                myUpdatedDescription = desc;
 		myIndirectObjectCommands = indirectObjCmds;
 		myDirectObjectCommands = directObjCmds;
 		myAliases = aliases;
@@ -73,7 +74,7 @@ public abstract class Target implements AdventureTarget {
 	 * <code>desc</code>.
 	 */
 	public String getDescription() {
-		return (myUpdatedDescription.length()>0)?myUpdatedDescription:myDesc;
+		return myUpdatedDescription;
 	}
 
 	 /**
