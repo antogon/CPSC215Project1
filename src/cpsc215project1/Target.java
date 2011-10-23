@@ -14,13 +14,13 @@ import java.util.HashMap;
  */
 public abstract class Target implements AdventureTarget {
 
-	private String myName;
-	private String myDesc;
-	private ArrayList<String> myIndirectObjectCommands;
+	protected String myName;
+	protected String myDesc;
+	protected ArrayList<String> myIndirectObjectCommands;
 		// things you can do WITH the Target instance
-	private HashMap<String, String> myDirectObjectCommands;
+	protected HashMap<String, String> myDirectObjectCommands;
 		// things you can do TO the Target instance
-	private ArrayList<String> myAliases;
+	protected ArrayList<String> myAliases;
 		// list of words that could also refer to this instance
 
 	/**
@@ -117,4 +117,8 @@ public abstract class Target implements AdventureTarget {
 	}
 */
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ef07e005eb295d6dba209b4358c68d2fdaaeeb52

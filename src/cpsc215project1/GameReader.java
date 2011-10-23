@@ -71,17 +71,21 @@ public class GameReader
 			}
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-                        if(cB.length()>0)
-                        {
-                            for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
-                            {
-                                    d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
-                                    startNDX=cB.indexOf(',', startNDX)+2;
-                            }
-                            int startNDX=cB.lastIndexOf(',')+2;
-                            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
-                        }
-			Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d);
+			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+			int startNDX=cB.lastIndexOf(',')+2;
+			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
+			cB = curr.getAttributeValue("aliases");
+                        ArrayList<String> ali = new ArrayList<String>();
+			for(startNDX = 0; cB!=null && cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+                        Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
@@ -102,17 +106,21 @@ public class GameReader
 			}
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-                        if(cB.length()>0)
-                        {
-                            for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
-                            {
-                                    d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
-                                    startNDX=cB.indexOf(',', startNDX)+2;
-                            }
-                            int startNDX=cB.lastIndexOf(',')+2;
-                            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
-                        }
-			Person a = new Person(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d);
+			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+			int startNDX=cB.lastIndexOf(',')+2;
+			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
+                        cB = curr.getAttributeValue("aliases");
+                        ArrayList<String> ali = new ArrayList<String>();
+			for(startNDX = 0; cB!=null && cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+			Person a = new Person(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d,ali);
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
@@ -133,17 +141,21 @@ public class GameReader
 			}
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-                        if(cB.length()>0)
-                        {
-                            for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
-                            {
-                                    d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
-                                    startNDX=cB.indexOf(',', startNDX)+2;
-                            }
-                            int startNDX=cB.lastIndexOf(',')+2;
-                            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
-                        }
-			Portal a = new Portal(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d);
+			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+			int startNDX=cB.lastIndexOf(',')+2;
+			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
+                        cB = curr.getAttributeValue("aliases");
+                        ArrayList<String> ali = new ArrayList<String>();
+			for(startNDX = 0; cB!=null && cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			{
+				ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
+				startNDX=cB.indexOf(',', startNDX)+2;
+			}
+			Portal a = new Portal(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d,ali);
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
