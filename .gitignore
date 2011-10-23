@@ -3,3 +3,11 @@ build/
 *.swp
 *.class
 nbproject/private/*
+
+src/cpsc215project1/Portal.java
+
+src/.DS_Store
+
+nbproject/genfiles.properties
+
+nbproject/genfiles.properties
