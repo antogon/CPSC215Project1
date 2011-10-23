@@ -7,7 +7,7 @@ dirty for you to see outside."
 	>
 		<Item
 			name="phone"
-			desc="It has a slot for quarters"
+			desc="It has a slot for quarters."
 			canDo="break=>damage, examine=>examine"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
@@ -15,7 +15,7 @@ dirty for you to see outside."
 		</Item>
                 <Item
 			name="quarter"
-			desc="you feel sure you could get 25 pennies for this"
+			desc="You feel sure you could get 25 pennies for this."
 			canDo="scratch=>damage, examine=>examine, take=>take, pick up=>take, drop=>drop"
 			canBe="answer, take, examine, use, drop"
                         aliases="coin"
@@ -32,7 +32,7 @@ dirty for you to see outside."
 		<Portal
 			name="door"
 			desc="It's a glass sliding door that doesn't seem to
-want to open"
+want to open."
 			canDo="break=>open, open=>open, close=>close, enter=>Space, examine=>examine"
 			canBe="open, close, examine"
                         aliases="door"
