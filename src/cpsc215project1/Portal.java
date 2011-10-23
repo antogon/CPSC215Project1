@@ -12,30 +12,12 @@ import edu.clemson.cs.hamptos.adventure.*;
  *
  * @author amalvag
  */
-public class Portal implements AdventureTarget {
+public class Portal extends Target {
 
-	private String name;
-	private String desc;
-	private ArrayList<String> canBe;
-	private HashMap<String, String> canDo;
+	;
 
-    public Portal(String name, String desc, ArrayList<String> b, HashMap<String, String> d) {
-		this.name = name;
-		this.desc = desc;
-		canBe = b;
-		canDo = d;
-    }
-
-    public boolean canBeReferredToAs(String text) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    public String getShortDescription() {
-		return name;
-    }
-
-    public String getDescription() {
-		return desc;
+    public Portal(String name, String desc, ArrayList<String> b, HashMap<String, String> d, ArrayList<String> a) {
+		super(name, desc, b, d, a);
     }
 
     public void doCommandTo(

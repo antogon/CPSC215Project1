@@ -12,18 +12,12 @@ import edu.clemson.cs.hamptos.adventure.*;
  *
  * @author amalvag
  */
-public class Person implements AdventureTarget {
+public class Person extends Target {
 
-	private String name;
-	private String desc;
-	private ArrayList<String> canBe;
-	private HashMap<String, String> canDo;
+	
 
-    public Person(String name, String desc, ArrayList<String> b, HashMap<String, String> d) {
-		this.name = name;
-		this.desc = desc;
-		canBe = b;
-		canDo = d;
+    public Person(String name, String desc, ArrayList<String> b, HashMap<String, String> d, ArrayList<String> a) {
+	super(name, desc, b, d, a);
     }
 
     public boolean canBeReferredToAs(String text) {
@@ -31,11 +25,11 @@ public class Person implements AdventureTarget {
     }
 
     public String getShortDescription() {
-		return name;
+		return myName;
     }
 
     public String getDescription() {
-		return desc;
+		return myDesc;
     }
 
     public void doCommandTo(

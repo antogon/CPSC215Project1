@@ -1,48 +1,42 @@
 <Game>
 	<Location
-		name="Room"
-		desc="This is a room."
+		name="Phonebooth"
+		desc="You are in a tiny glass phonebooth.  The windows are too 
+dirty for you to see outside."
+                isInit = "Initial Location"
 	>
 		<Item
-			name="Sword"
-			desc="A shiny new broadsword."
-			canDo="hit=>damage, strike=>damage, drop=>drop, take=>take"
-			canBe="damage, drop, take"
+			name="phone"
+			desc="It has a slot for quarters"
+			canDo="break=>damage, examine=>examine"
+			canBe="answer, pickup, use, examine"
+                        aliases="telephone, phone, receiver"
 		>
 		</Item>
-		<Person
-			name="Bob Marley"
-			desc="A rather shaggy man with an interesting smell."
-			gender="male"
-			canDo="talk=>speak, speak=>speak"
-			canBe="damage, speak"
+                <Item
+			name="quarter"
+			desc="you feel sure you could get 25 pennies for this"
+			canDo="scratch=>damage, examine=>examine"
+			canBe="answer, pickup, use, examine"
+                        aliases="telephone, phone, receiver"
 		>
-		</Person>
+		</Item>
 		<Portal
 			name="Door"
-			desc="A run-down looking wooden door with broken hinges."
-			canDo="open=>open, close=>close, enter=>Dungeon"
+			desc="It's a glass sliding door that doesn't seem to
+want to open"
+			canDo="break=>open, open=>open, close=>close, enter=>Giant Phonebooth"
 			canBe="open, close"
+                        aliases="door"
 		>
 		</Portal>
 	</Location>
 	<Location
-		name="Dungeon"
-		desc="The walls are smelly and damp."
+		name="Space"
+		desc="Upon opening the door your are sucked into outer space.  
+You have failed to pack a space suit and cannot breath.  However you are happy
+to have escaped the booth.  Good job!"
 	>
-		<Item
-			name="Rock"
-			desc="A large, damp boulder."
-			canDo="hit=>damage, strike=>damage, drop=>drop, take=>take"
-			canBe="damage, drop, take"
-		>
-		</Item>
-		<Portal
-			name="Door"
-			desc="A run-down looking wooden door with broken hinges."
-			canDo="open=>open, close=>close, enter=>Room"
-			canBe="open, close"
-		>
-		</Portal>
+		
 	</Location>
 </Game>
