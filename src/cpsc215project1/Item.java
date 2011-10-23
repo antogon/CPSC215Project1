@@ -12,7 +12,7 @@ import java.util.HashMap;
  *
  * @author amalvag
  */
-public class Item extends Target {    
+public class Item extends Target {
     
     public Item(String name, String desc, ArrayList<String> b, HashMap<String, 
             String> d, ArrayList<String> ialiases) {

@@ -17,7 +17,8 @@ public class LookStrategy implements VerbStrategy{
 		String output = "You can see ";
         for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
         {
-			output += t.getShortDescription() + ", ";
+                        if(((Target)t).getVisible())
+                            output += t.getShortDescription() + ", ";
         }
         w.println(output);
     }

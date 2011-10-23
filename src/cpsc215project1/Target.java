@@ -24,6 +24,7 @@ public abstract class Target implements AdventureTarget {
         protected String myUpdatedDescription;
 		// list of words that could also refer to this instance
         protected boolean isUsable = true;
+        protected boolean isVisible = true;
 
 	/**
 	 * Default constructor for the <code>Target</code> class.
@@ -126,6 +127,16 @@ public abstract class Target implements AdventureTarget {
         public void setUsable(boolean a)
         {
             isUsable = a;
+        }
+
+        public boolean getVisible()
+        {
+            return isVisible;
+        }
+
+        public void setVisible(boolean a)
+        {
+            isVisible = a;
         }
 
 }

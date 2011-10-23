@@ -22,11 +22,12 @@ dirty for you to see outside."
 		>
 		</Item>
                 <Item
-			name="your face"
-			desc="Oh my, looking at this thing hurts you."
-			canDo="break=>damage"
-			canBe="damage"
-                        aliases="face"
+			name="crowbar"
+			desc="A long, hard, steel rod of pain."
+			canDo="break=>damage, take=>take, drop=>drop"
+			canBe="take, drop"
+                        aliases=""
+                        visibility="false"
 		>
 		</Item>
 		<Portal

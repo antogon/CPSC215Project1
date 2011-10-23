@@ -88,6 +88,11 @@ public class GameReader
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
                         Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
+                        cB = curr.getAttributeValue("visibility");
+                        if(cB!=null && cB.equals("false"))
+                        {
+                            a.setVisible(false);
+                        }
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
@@ -125,7 +130,12 @@ public class GameReader
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
 			Person a = new Person(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d,ali);
-			String pa = p.getAttributeValue("name");
+			cB = curr.getAttributeValue("visibility");
+                        if(cB!=null && cB.equals("false"))
+                        {
+                            a.setVisible(false);
+                        }
+                        String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
 				if(l.getName().equals(pa))
@@ -162,7 +172,12 @@ public class GameReader
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
 			Portal a = new Portal(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d,ali);
-			String pa = p.getAttributeValue("name");
+			cB = curr.getAttributeValue("visibility");
+                        if(cB!=null && cB.equals("false"))
+                        {
+                            a.setVisible(false);
+                        }
+                        String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
 				if(l.getName().equals(pa))
