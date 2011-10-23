@@ -32,8 +32,11 @@ public class MyParser implements AdventureParser {
         String indObjInv = null;        //invocation of inderect object
         
         //getting list of targets from local location
+        //TO HAMPTON:  The following statement happens only because
+        //we broke your encapsulation.  This is why we cannot have nice things.
         myTargets =
-             (HashSet<AdventureTarget>) e.getPlayerLocation().getLocalTargets();
+             (HashSet<AdventureTarget>)((HashSet<AdventureTarget>) e.getPlayerLocation().getLocalTargets()).clone();
+        myTargets.addAll(e.getPlayerInventory());
         
         //variable used to hold Adventure targets while being assigned in loop
         AdventureTarget tempVar = null;

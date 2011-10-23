@@ -40,9 +40,8 @@ public class Location implements AdventureLocation {
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {   
         if(c.getVerb().equals("look")){
-            w.println(myUpdatedDescription);
+            new LookStrategy().doCommand(c,e,w);
         }
-        
     }
 
     public String getDescription() {

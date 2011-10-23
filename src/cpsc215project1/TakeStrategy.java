@@ -8,18 +8,20 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
 
 /**
  *
- * @author toiletplumber
+ * @author amalvagomes
  */
-public class ExamineStrategy implements VerbStrategy{
+public class TakeStrategy implements VerbStrategy{
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-        
+        AdventureTarget out = null;
         for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
         {
-            if(t.getShortDescription().equals(c.getDirectObject().getShortDescription())){
-                w.println(c.getDirectObject().getDescription());
+            if(t == c.getDirectObject()){
+				out=t;
             } 
         }
+        e.addToPlayerInventory(out);
+        e.getPlayerLocation().removeLocalTarget(out);
     }
     
 }

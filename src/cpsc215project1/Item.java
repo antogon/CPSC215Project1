@@ -23,10 +23,18 @@ public class Item extends Target {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {
-        if(c.getVerb().equals("examine") && myDirectObjectCommands.get(c.getVerb()).equals(c.getVerb())){
+        String key = myDirectObjectCommands.get(c.getVerb());
+        boolean canBe = myIndirectObjectCommands.contains(key);
+        if(canBe && key.equals("examine")){
+            System.out.println(c.getDirectObjectInvocation());
             new ExamineStrategy().doCommand(c,e,w);
         }
-        
+        else if(canBe && key.equals("take")){
+            new TakeStrategy().doCommand(c,e,w);
+        }
+        else if(canBe && key.equals("drop")){
+            new DropStrategy().doCommand(c,e,w);
+        }
     }
 
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {

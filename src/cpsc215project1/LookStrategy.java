@@ -8,18 +8,18 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
 
 /**
  *
- * @author toiletplumber
+ * @author amalvagomes
  */
-public class ExamineStrategy implements VerbStrategy{
+public class LookStrategy implements VerbStrategy{
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-        
+		w.println(e.getPlayerLocation().getDescription());
+		String output = "You can see ";
         for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
         {
-            if(t.getShortDescription().equals(c.getDirectObject().getShortDescription())){
-                w.println(c.getDirectObject().getDescription());
-            } 
+			output += t.getShortDescription() + ", ";
         }
+        w.println(output);
     }
     
 }

@@ -62,7 +62,7 @@ public abstract class Target implements AdventureTarget {
 	 * @return <code>name</code> of the object as supplied in the constructor.
 	 */
 	public String getShortDescription() {
-		return myName;
+		return "a " + myName;
 	}
 
 	/**

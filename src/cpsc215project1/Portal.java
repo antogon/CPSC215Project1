@@ -24,7 +24,11 @@ public class Portal extends Target {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if(myIndirectObjectCommands.contains(myDirectObjectCommands.get(c.getVerb()))
+                && myDirectObjectCommands.get(c.getVerb()).equals("examine")){
+            System.out.println(c.getDirectObjectInvocation());
+            new ExamineStrategy().doCommand(c,e,w);
+        }
     }
 
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
