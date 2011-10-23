@@ -9,21 +9,19 @@ import java.util.HashMap;
 import edu.clemson.cs.hamptos.adventure.*;
 
 /**
- *
- * @author amalvag
+ *	A <code>portal</code> is a
+ * @author David Alexander Cohen, II.
  */
-public class Portal implements AdventureTarget {
+public class Portal extends Target{
 
 	private String name;
 	private String desc;
 	private ArrayList<String> canBe;
 	private HashMap<String, String> canDo;
 
-    public Portal(String name, String desc, ArrayList<String> b, HashMap<String, String> d) {
-		this.name = name;
-		this.desc = desc;
-		canBe = b;
-		canDo = d;
+    public Portal(String name, String desc, ArrayList<String> indirectObjCmds,
+			HashMap<String, String> directObjCmds, ArrayList<String> aliases) {
+		super(name, desc, indirectObjCmds, directObjCmds, aliases);
     }
 
     public boolean canBeReferredToAs(String text) {
