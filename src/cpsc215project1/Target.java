@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
- * @author David Cohen
+ * A <code>Target</code> is a generic implementation of {@link AdventureTarget}.
+ * @author David Alexander Cohen, II.
  */
 public abstract class Target implements AdventureTarget {
 
@@ -24,12 +24,18 @@ public abstract class Target implements AdventureTarget {
 		// list of words that could also refer to this instance
 
 	/**
-	 * Default constructor for the <code>Target</code> class.
+	 * <p>Default constructor for the <code>Target</code> class.</p>
 	 * @param name given name, or short description, of the <code>Target</code>
 	 * @param desc a longer description of the <code>Target</code>
 	 * @param indirectObjCmds list of verbs you can do <b>with</b> the
 	 * <code>Target</code> instance.
-	 * @param directObjCmds !?!?!?!?
+	 * @param directObjCmds Hash map of commands the <code>Target</code> can
+	 * execute. The key is the <code>verb</code> parsed through {@link MyParser}.
+	 * In the case of intransitive verbs (i.e. "open door"), the value is a
+	 * command that can be understood by {@link doCommandTo}, such that
+	 * the indirect object is implied to be itself. Otherwise, the value is
+	 * another <code>Target</code> being dealt with (i.e. entering a door would
+	 * change the location).
 	 * @param aliases list of words that could refer to this <code>Target</code>
 	 * instance. <code>name</code> needs not be included in this list.
 	 */
@@ -102,6 +108,23 @@ public abstract class Target implements AdventureTarget {
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException;
 
+    /**
+     * <p>Requests that this target attempt to process the given command as the
+     * indirect object of the command.  So, if the command given were
+     * <code>"unlock door with key"</code>, the game engine would call this
+     * method to ask that the key deal with unlocking something.  If this target
+     * does not understand the command it's being asked to process, it will
+     * throw a <code>DoNotUnderstandException</code>.</p>
+     *
+     * @param c The command the target is to process.
+     * @param e The game engine, which this target may use to change the state
+     *    of the game appropriately if it must in order to process the command.
+     * @param w The input/output window, which this target may use to print
+     *    text to the terminal if it must in order to process the command.
+     *
+     * @throws DoNotUnderstandException If this target does not know how to
+     *    process the given command.
+     */
 	public abstract void doCommandWith(AdventureCommand c,
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException;
