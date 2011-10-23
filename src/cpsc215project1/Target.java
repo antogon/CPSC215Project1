@@ -21,7 +21,9 @@ public abstract class Target implements AdventureTarget {
 	protected HashMap<String, String> myDirectObjectCommands;
 		// things you can do TO the Target instance
 	protected ArrayList<String> myAliases;
+        protected String myUpdatedDescription;
 		// list of words that could also refer to this instance
+        protected boolean isUsable = true;
 
 	/**
 	 * Default constructor for the <code>Target</code> class.
@@ -71,7 +73,7 @@ public abstract class Target implements AdventureTarget {
 	 * <code>desc</code>.
 	 */
 	public String getDescription() {
-		return myDesc;
+		return (myUpdatedDescription.length()>0)?myUpdatedDescription:myDesc;
 	}
 
 	 /**
@@ -116,5 +118,13 @@ public abstract class Target implements AdventureTarget {
 
 	}
 */
+        public void updateDescription(String iDiscription) {
+        myUpdatedDescription = myDesc + "\n" + iDiscription;
+        }
+
+        public void setUsable(boolean a)
+        {
+            isUsable = a;
+        }
 
 }
