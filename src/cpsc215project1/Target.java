@@ -117,8 +117,4 @@ public abstract class Target implements AdventureTarget {
 	}
 */
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> ef07e005eb295d6dba209b4358c68d2fdaaeeb52
