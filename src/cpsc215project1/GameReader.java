@@ -69,14 +69,16 @@ public class GameReader
 				b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
+                        int startNDX=cB.lastIndexOf(',')+2;
+                        b.add(cB.substring(startNDX, cB.length()));
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			for(startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
 			{
 				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
-			int startNDX=cB.lastIndexOf(',')+2;
+			startNDX=cB.lastIndexOf(',')+2;
 			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
 			cB = curr.getAttributeValue("aliases");
                         ArrayList<String> ali = new ArrayList<String>();
@@ -104,14 +106,16 @@ public class GameReader
 				b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
+                        int startNDX=cB.lastIndexOf(',')+2;
+                        b.add(cB.substring(startNDX, cB.length()));
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			for(startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
 			{
 				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
-			int startNDX=cB.lastIndexOf(',')+2;
+			startNDX=cB.lastIndexOf(',')+2;
 			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
                         cB = curr.getAttributeValue("aliases");
                         ArrayList<String> ali = new ArrayList<String>();
@@ -139,14 +143,16 @@ public class GameReader
 				b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
+                        int startNDX=cB.lastIndexOf(',')+2;
+                        b.add(cB.substring(startNDX, cB.length()));
 			HashMap<String, String> d = new HashMap<String, String>();
 			cB = curr.getAttributeValue("canDo");
-			for(int startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
+			for(startNDX = 0; cB.indexOf(',', startNDX)>0; startNDX=startNDX)
 			{
 				d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.indexOf(',',startNDX)));
 				startNDX=cB.indexOf(',', startNDX)+2;
 			}
-			int startNDX=cB.lastIndexOf(',')+2;
+			startNDX=cB.lastIndexOf(',')+2;
 			d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX)+2,cB.length()));
                         cB = curr.getAttributeValue("aliases");
                         ArrayList<String> ali = new ArrayList<String>();
