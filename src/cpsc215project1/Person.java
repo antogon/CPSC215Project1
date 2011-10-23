@@ -24,9 +24,9 @@ public class Person extends Target {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {
-        if(myIndirectObjectCommands.contains(myDirectObjectCommands.get(c.getVerb()))
-                && myDirectObjectCommands.get(c.getVerb()).equals("examine")){
-            System.out.println(c.getDirectObjectInvocation());
+        String key = myDirectObjectCommands.get(c.getVerb());
+        boolean canBe = myIndirectObjectCommands.contains(key);
+        if(canBe && key.equals("examine")){
             new ExamineStrategy().doCommand(c,e,w);
         }
     }
