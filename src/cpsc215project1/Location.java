@@ -12,15 +12,17 @@ public class Location implements AdventureLocation {
     private String myName;
     private String myDescription;
     private String myUpdatedDescription;
+    private ArrayList<Location> myWorld;
 
     private ArrayList<String> vList = new ArrayList<String>
             (Arrays.asList("die", "answer","pickup"));
     
-    public Location(String name, String desc) {
+    public Location(String name, String desc, ArrayList<Location> w) {
         myName = name;
         myUpdatedDescription = desc;
         myDescription = desc;
 	myLocalTargets = new HashSet<AdventureTarget>();
+        myWorld = w;
     }
 
     public ArrayList<String> getVList(){
@@ -66,5 +68,10 @@ public class Location implements AdventureLocation {
     public String getName()
     {
 	return myName;
+    }
+
+    public ArrayList<Location> getWorld()
+    {
+        return (ArrayList<Location>)(myWorld.clone());
     }
 }

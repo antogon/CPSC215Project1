@@ -14,8 +14,6 @@ import edu.clemson.cs.hamptos.adventure.*;
  */
 public class Portal extends Target {
 
-	;
-
     public Portal(String name, String desc, ArrayList<String> b, HashMap<String, String> d, ArrayList<String> a) {
 		super(name, desc, b, d, a);
     }
@@ -24,10 +22,21 @@ public class Portal extends Target {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {
-        if(myIndirectObjectCommands.contains(myDirectObjectCommands.get(c.getVerb()))
-                && myDirectObjectCommands.get(c.getVerb()).equals("examine")){
-            System.out.println(c.getDirectObjectInvocation());
+        String key = myDirectObjectCommands.get(c.getVerb());
+        boolean canBe = myIndirectObjectCommands.contains(key);
+        if(canBe && key.equals("examine")){
             new ExamineStrategy().doCommand(c,e,w);
+        }
+        else
+        {
+            for(Location l : ((Location)e.getPlayerLocation()).getWorld())
+            {
+                if(l.getName().equals(key))
+                {
+                    e.setPlayerLocation(l);
+                    break;
+                }
+            }
         }
     }
 

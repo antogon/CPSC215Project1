@@ -53,7 +53,7 @@ public class GameReader
 		if(eleName.equals("Location"))
 		{
 			ArrayList<String> b = new ArrayList<String>();
-			Location a = new Location(curr.getAttributeValue("name"), curr.getAttributeValue("desc"));
+			Location a = new Location(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), myWorld);
 			if(curr.getAttributeValue("isInit")!=null)
 			{
 				myLocation = a;
