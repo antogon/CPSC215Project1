@@ -13,18 +13,18 @@ import java.util.HashMap;
  * @author David Alexander Cohen, II.
  */
 public abstract class Target implements AdventureTarget {
-
-	private String myName;
-	private String myDesc;
-	private ArrayList<String> myIndirectObjectCommands;
+	protected String myName;
+	protected String myDesc;
+	protected ArrayList<String> myIndirectObjectCommands;
 		// things you can do WITH the Target instance
-	private HashMap<String, String> myDirectObjectCommands;
+	protected HashMap<String, String> myDirectObjectCommands;
 		// things you can do TO the Target instance
-	private ArrayList<String> myAliases;
+	protected ArrayList<String> myAliases;
 		// list of words that could also refer to this instance
 
 	/**
-	 * <p>Default constructor for the <code>Target</code> class.</p>
+	 * Default constructor for the <code>Target</code> class.
+>>>>>>> a3d55bf0898b5c54cd00897c7efca5f7d2a93901
 	 * @param name given name, or short description, of the <code>Target</code>
 	 * @param desc a longer description of the <code>Target</code>
 	 * @param indirectObjCmds list of verbs you can do <b>with</b> the
@@ -68,7 +68,7 @@ public abstract class Target implements AdventureTarget {
 	 * @return <code>name</code> of the object as supplied in the constructor.
 	 */
 	public String getShortDescription() {
-		return myName;
+		return "a " + myName;
 	}
 
 	/**
