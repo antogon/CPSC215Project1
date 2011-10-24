@@ -27,6 +27,6 @@ public class TakeStrategy implements VerbStrategy {
         e.addToPlayerInventory(out);
         ((Item) out).setUsable(true);
         e.getPlayerLocation().removeLocalTarget(out);
-        w.println("You pick up " + out.getShortDescription());
+        w.println("You pick up " + out.getShortDescription() + ".");
     }
 }
