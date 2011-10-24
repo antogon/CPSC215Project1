@@ -53,7 +53,6 @@ public class Item extends Target {
             new ExamineStrategy().doCommand(c, e, w);
         } else if (canBe && key.equals("take")) {
             new TakeStrategy().doCommand(c, e, w);
-
         } else if (canBe && key.equals("drop")) {
             new DropStrategy().doCommand(c, e, w);
         } else if (canBe && key.equals("damage")) {

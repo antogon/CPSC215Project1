@@ -37,7 +37,8 @@ public class Portal extends Target {
             w.println("The " + myName + " is now closed.");
             isOpen = false;
             this.updateDescription("The door is closed.");
-        } else if (!myDirectObjectCommands.containsKey(c.getVerb())) {
+        }
+        else if(!myDirectObjectCommands.containsKey(c.getVerb())){
             throw new DoNotUnderstandException(c);
         } else {
             for (Location l : ((Location) e.getPlayerLocation()).getWorld()) {
@@ -49,7 +50,7 @@ public class Portal extends Target {
                                 + " and fail dismally, hitting your head.");
                     }
                     break;
-                }
+                }  
             }
 
         }
