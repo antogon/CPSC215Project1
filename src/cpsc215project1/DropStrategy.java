@@ -10,18 +10,20 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author amalvagomes
  */
-public class DropStrategy implements VerbStrategy{
+public class DropStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         AdventureTarget out = null;
-        for(AdventureTarget t : e.getPlayerInventory())
-        {
-            if(t == c.getDirectObject()){
-		out=t;
-            } 
+        for (AdventureTarget t : e.getPlayerInventory()) {
+            if (((Target) t).getVisible()) {
+                if (t == c.getDirectObject()) {
+                    out = t;
+                    e.removeFromPlayerInventory(out);
+                    ((Item) out).setUsable(false);
+                    e.getPlayerLocation().addLocalTarget(out);
+                    w.println("You drop " + out.getShortDescription());
+                }
+            }
         }
-        e.removeFromPlayerInventory(out);
-        e.getPlayerLocation().addLocalTarget(out);
     }
-    
 }

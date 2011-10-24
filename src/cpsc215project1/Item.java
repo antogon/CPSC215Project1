@@ -30,6 +30,7 @@ public class Item extends Target {
         }
         else if(canBe && key.equals("take")){
             new TakeStrategy().doCommand(c,e,w);
+            
         }
         else if(canBe && key.equals("drop")){
             new DropStrategy().doCommand(c,e,w);
@@ -37,9 +38,23 @@ public class Item extends Target {
         else if(canBe && key.equals("damage")){
             new DamageStrategy().doCommand(c,e,w);
         }
+        else{
+            throw new DoNotUnderstandException(c);
+        }
     }
 
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+
+        if(c.getVerb().equals("use") && myIndirectObjectCommands.contains(c.getVerb()))
+        {
+            w.println("You put a quarter into the coin slot and it starts ringing."
+                    + "This isn't how phones work but you figure you should answer "
+                    + "it anyway.");
+            ((Item) c.getIndirectObject()).setUsable(true);
+            ((Item) c.getDirectObject()).setUsable(false);
+            e.removeFromPlayerInventory(c.getDirectObject());
+            ((Location) e.getPlayerLocation()).updateDescription("The phone is now ringing");
+        }
     }
 }
