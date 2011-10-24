@@ -24,7 +24,7 @@ public abstract class Target implements AdventureTarget {
         		// list of words that could also refer to this instance
         protected String myUpdatedDescription;
 
-        protected boolean isUsable = true;
+        protected boolean isUsable = false;
         protected boolean isVisible = true;
 
 	/**
