@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
- * @author David Cohen
+ * A <code>Target</code> is a generic implementation of {@link AdventureTarget}.
+ * @author David Alexander Cohen, II.
  */
 public abstract class Target implements AdventureTarget {
 
@@ -32,7 +32,13 @@ public abstract class Target implements AdventureTarget {
 	 * @param desc a longer description of the <code>Target</code>
 	 * @param indirectObjCmds list of verbs you can do <b>with</b> the
 	 * <code>Target</code> instance.
-	 * @param directObjCmds !?!?!?!?
+	 * @param directObjCmds Hash map of commands the <code>Target</code> can
+	 * execute. The key is the <code>verb</code> parsed through {@link MyParser}.
+	 * In the case of intransitive verbs (i.e. "open door"), the value is a
+	 * command that can be understood by {@link doCommandTo}, such that
+	 * the indirect object is implied to be itself. Otherwise, the value is
+	 * another <code>Target</code> being dealt with (i.e. entering a door would
+	 * change the location).
 	 * @param aliases list of words that could refer to this <code>Target</code>
 	 * instance. <code>name</code> needs not be included in this list.
 	 */
@@ -109,17 +115,7 @@ public abstract class Target implements AdventureTarget {
 	public abstract void doCommandWith(AdventureCommand c,
 			AdventureEngine e,
 			AdventureWindow w) throws DoNotUnderstandException;
-/*	public abstract void doCommandWith(AdventureCommand c,
-			AdventureEngine e,
-			AdventureWindow w) throws DoNotUnderstandException {
-		// throw new UnsupportedOperationException("Not supported yet.");
-		if(!myIndirectObjectCommands.contains(c.getVerb()) )
-			throw new DoNotUnderstandException(c);
 
-
-
-	}
-*/
         public void updateDescription(String iDiscription) {
         myUpdatedDescription = myDesc + "\n" + iDiscription;
         }
