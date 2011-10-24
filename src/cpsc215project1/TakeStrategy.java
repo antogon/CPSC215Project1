@@ -19,13 +19,14 @@ public class TakeStrategy implements VerbStrategy {
             if (((Target) t).getVisible()) {
                 if (t == c.getDirectObject()) {
                     out = t;
-                    e.addToPlayerInventory(out);
-                    ((Item) out).setUsable(true);
-                    e.getPlayerLocation().removeLocalTarget(out);
-                    w.println("You pick up " + out.getShortDescription());
+                    
                     
                 }
             }
         }
+        e.addToPlayerInventory(out);
+        ((Item) out).setUsable(true);
+        e.getPlayerLocation().removeLocalTarget(out);
+        w.println("You pick up " + out.getShortDescription());
     }
 }
