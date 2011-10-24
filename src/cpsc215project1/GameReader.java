@@ -9,7 +9,7 @@ import nu.xom.*;
 import edu.clemson.cs.hamptos.adventure.*;
 
 /**
- * <p>Takes in an XML game file and parses it accordingly.  Results in a fully
+ * <p>A <code>GameReader</code> takes in an XML game file and parses it accordingly.  Results in a fully
  *      built game ready to be fed into the AdventureEngine.
  * @author ApertureScience
  */

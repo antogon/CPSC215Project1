@@ -9,8 +9,15 @@ import java.util.HashMap;
 import edu.clemson.cs.hamptos.adventure.*;
 
 /**
+ * <p>A <code>Person</code> is a type of {@link Target}. Used as the direct
+ * object of a command, an <code>Person</code> may be:<ul>
+ * <li>examined (give more information to the player)</li>
+ * <li>talked to (by invoking the <code>usesDO</code> attribute)</li>
+ * Used as an indirect object, <code>Person</code> may have an effect on the
+ * command's direct object by invoking anything in the XML file's
+ * <code>usesIO</code> attribute.</p>
  *
- * @author amalvag
+ * @author ApertureScience
  */
 public class Person extends Target {
 

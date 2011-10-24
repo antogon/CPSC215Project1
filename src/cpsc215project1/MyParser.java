@@ -14,11 +14,21 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- *
- * @author toiletplumber
+ * <p> A <code>MyParser</code> is a class that implements AdventureParser
+ *      and parses in-game commands.</p>
+ * @author ApertureScience
  */
 public class MyParser implements AdventureParser {
 
+    /**
+     * <p>Parses the String input from the user as an AdventureCommand.</p>
+     * 
+     * @param command The string to be parsed.  Must be non-null.
+     * @param e The AdventureEngine with which the command will be interpreted. Must be initialized.
+     * @return A non-null AdventureCommand object that represented the parsed String.
+     * @throws NoSuchTargetException when the target mentioned in the String
+     *  is nonexistent in the context of the game.
+     */
     public AdventureCommand parse(String command, AdventureEngine e)
             throws NoSuchTargetException {
         AdventureCommand returnCommand = null;  //Finished Command
@@ -33,7 +43,7 @@ public class MyParser implements AdventureParser {
 
         //getting list of targets from local location
         //TO HAMPTON:  The following statement happens only because
-        //we broke your encapsulation.  This is why we cannot have nice things.
+        //we broke your encapsulation.
         myTargets =
                 (HashSet<AdventureTarget>) ((HashSet<AdventureTarget>) e.getPlayerLocation().getLocalTargets()).clone();
         myTargets.addAll(e.getPlayerInventory());
