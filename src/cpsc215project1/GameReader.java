@@ -67,7 +67,7 @@ public class GameReader {
         if (eleName.equals("Item")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -75,7 +75,7 @@ public class GameReader {
             b.add(cB.substring(startNDX, cB.length()));
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
-            for (startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -83,7 +83,7 @@ public class GameReader {
             d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
-            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -94,7 +94,7 @@ public class GameReader {
             }
             cB = curr.getAttributeValue("usesIO");
             //uses must be as: [message one]|[object]|[scene effect];
-            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
                 String[] val = new String[2];
                 val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
                 startNDX = cB.indexOf("|", startNDX) + 1;
@@ -106,7 +106,7 @@ public class GameReader {
             }
             cB = curr.getAttributeValue("usesDO");
             //uses must be as: [message one]|[object]|[scene effect];
-            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
                 String[] val = new String[2];
                 val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
                 startNDX = cB.indexOf("|", startNDX) + 1;
@@ -126,7 +126,7 @@ public class GameReader {
         if (eleName.equals("Person")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -134,7 +134,7 @@ public class GameReader {
             b.add(cB.substring(startNDX, cB.length()));
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
-            for (startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -142,7 +142,7 @@ public class GameReader {
             d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
-            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -161,7 +161,7 @@ public class GameReader {
         if (eleName.equals("Portal")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -169,7 +169,7 @@ public class GameReader {
             b.add(cB.substring(startNDX, cB.length()));
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
-            for (startNDX = 0; cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -177,7 +177,7 @@ public class GameReader {
             d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
-            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0; startNDX = startNDX) {
+            for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
