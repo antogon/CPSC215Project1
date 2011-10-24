@@ -1,10 +1,9 @@
 <Game>
 	<Location
 		name="Phonebooth"
-                isInit = "Initial Location"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
 dirty for you to see outside."
-                isInit = "Initial Location"
+            isInit = "Initial Location"
 	>
 		<Item
 			name="phone"
@@ -29,8 +28,7 @@ dirty for you to see outside."
 			name="quarter"
 			desc="You feel sure you could get 25 pennies for this."
 			canDo="get=>take, examine=>examine, take=>take, drop=>drop"
-			canBe="answer, take, examine, use, drop"
-                        
+			canBe="answer, take, examine, use, drop"  
                         aliases="coin"
 		>
 		</Item>
@@ -168,18 +166,17 @@ seconds of your life before you pass out and die, unless of course
                 canBe="open, close, examine, use"
                 canDo="enter=>Lab, use=>open, examine=>examine"
                 aliases="hole, portal, blackhole"
-                usesIO="Upon pressing the button a great light bursts from the portal
+                usesIO="Upon waving the wand a great light bursts from the portal
                         and as time seems to bend and change your body.  You are certain you
                         could now enter the portal and escape the lonely void of space.
-                        |button|The portal is open.
-                Go towards the light go towards the light!;"
+                        |wand|The portal is open! Go towards the light go towards the light!;"
             >
             </Portal>
 
                 <Item
-			name="button"
-			desc="An interesting device that immediatley dazzles your eyes.  It
-                                seems to call to you."
+			name="wand"
+			desc="An magical device that immediatley dazzles your eyes.  It
+                                seems to call to you.  Perhaps it can help you escape certain death!"
 			canDo="examine=>examine, break=>damage, take=>take, drop=>drop, use=>use"
 			canBe="take, drop, use, examine"
                         aliases=""
@@ -189,7 +186,7 @@ seconds of your life before you pass out and die, unless of course
 	</Location>
         <Location
             name="Lab"
-            desc=" You are surrounded by people typing away at terminals in the dim light.
+            desc=" As the rushing vortex fades you find that you are surrounded by people typing away at terminals in the dim light.
                     The walls appear to have a purple tinge and you cannot help but feel the urge to vomit.
                     There is a smell lingering in one corner near a large, particularly hairy man.  Still,
                     it beats the cold of space..."
@@ -197,32 +194,37 @@ seconds of your life before you pass out and die, unless of course
             <Person
                 name="man"
                 desc="A large man.  He appears to be covered from head to toe in hair and smells as
-                      if he has not bathed in decades.  Approaching him may very well be the last
+                      if he has not bathed in decades.  Talking to him may very well be the last
                       mistake you ever make."
                 usesDO="The man grunts in your direction and continues typing at his terminal.|talk|
                         After you spoke to the man, the other people in the room appear to have a
                         newfound respect for you.;"
-                canBe="examine"
-                canDo="examine=>examine"
+                canBe="examine, damage"
+                canDo="examine=>examine, damage=>damage"
             >
             </Person>
             <Portal
-                name="crack in the wall"
-                desc="A crack running down the long purple wall of the laboratory."
-                canDo="enter=>Space"
-                canBe="open, close"
+                name="portal"
+                desc="The portal from which you emerged into this lab has taken the form
+                      of a large crack running down the long purple wall.
+                      The sound coming from it soothes you, like white static on an
+                      old tv screen."
+                canDo="enter=>Space, examine=>examine, open=>open, close=>close"
+                canBe="open, close, examine"
             >
             </Portal>
+
             <Item
                 name="computer"
                 desc="A dell computer is sitting on front of you.  The light from the screen hurts
                       your eyes but it is hard to tell whether this is the fault of the screen or the
-                      recent extreme pressure changes you've been exposed to..."
+                      recent extreme pressure changes you've been exposed to.  Perhaps you can use the computer
+                      to help make sense of all this..."
                 aliases="ubuntu, dell, thankgoditsnotrunningunity"
                 canBe="take, drop, use, examine"
                 canDo="damage=>damage, sudorm-rfv=>damage, take=>take, drop=>drop, examine=>examine"
                 usesDO="The terminal prints out one statement and one statement only.
-                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....
+                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....So much for that idea.
                         |use|The walls of the lab are shaking from the wrath of the
                         sysadmin gods.;"
                 >
