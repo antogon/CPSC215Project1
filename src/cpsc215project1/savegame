@@ -4,7 +4,7 @@
                 isInit = "Initial Location"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
 dirty for you to see outside."
-         
+                isInit = "Initial Location"
 	>
 		<Item
 			name="phone"
@@ -206,8 +206,6 @@ seconds of your life before you pass out and die, unless of course
                 canDo="examine=>examine"
             >
             </Person>
-            >
-            </Item>
             <Portal
                 name="crack in the wall"
                 desc="A crack running down the long purple wall of the laboratory."
