@@ -4,7 +4,6 @@ import java.util.Set;
 import java.util.HashSet;
 import edu.clemson.cs.hamptos.adventure.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Location implements AdventureLocation {
 
@@ -13,9 +12,6 @@ public class Location implements AdventureLocation {
     private String myDescription;
     private String myUpdatedDescription;
     private ArrayList<Location> myWorld;
-
-    private ArrayList<String> vList = new ArrayList<String>
-            (Arrays.asList("die", "answer","pickup"));
     
     public Location(String name, String desc, ArrayList<Location> w) {
         myName = name;
@@ -23,10 +19,6 @@ public class Location implements AdventureLocation {
         myDescription = desc;
 	myLocalTargets = new HashSet<AdventureTarget>();
         myWorld = w;
-    }
-
-    public ArrayList<String> getVList(){
-        return vList;
     }
     
     public void addLocalTarget(AdventureTarget t) {
