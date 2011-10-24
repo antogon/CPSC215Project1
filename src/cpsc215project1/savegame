@@ -9,8 +9,8 @@ dirty for you to see outside."
 			name="phone"
 			desc="It has a slot for quarters and seems to just barely
                                hang on the wall..."
-			canDo="break=>damage, examine=>examine, damage=>damage"
-			canBe="answer, use, examine, damage"
+			canDo="break=>damage, examine=>examine, damage=>damage, take=>take"
+			canBe="answer, use, examine, damage, take"
                         aliases="telephone, phone, receiver"
 		>
 		</Item>
