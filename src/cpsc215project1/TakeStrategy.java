@@ -19,8 +19,8 @@ public class TakeStrategy implements VerbStrategy {
             if (((Target) t).getVisible()) {
                 if (t == c.getDirectObject()) {
                     out = t;
-                    
-                    
+
+
                 }
             }
         }

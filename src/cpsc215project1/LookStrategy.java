@@ -20,8 +20,8 @@ public class LookStrategy implements VerbStrategy {
         int size = 0;
         ArrayList<AdventureTarget> visibleItems = new ArrayList<AdventureTarget>();
 
-        for(AdventureTarget t: e.getPlayerLocation().getLocalTargets()){
-            if (((Target) t).getVisible()){
+        for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+            if (((Target) t).getVisible()) {
                 visibleItems.add((AdventureTarget) t);
             }
         }
@@ -29,24 +29,24 @@ public class LookStrategy implements VerbStrategy {
         size = visibleItems.size();
 
         for (AdventureTarget t : visibleItems) {
-                if (size > 2) {
-                    if (ndx < size - 1) {
-                        output += t.getShortDescription() + ", ";
-                        ndx++;
-                    } else {
-                        output += "and " + t.getShortDescription() + ".";
-                    }
-                } else if (size == 1) {
-                    output += t.getShortDescription() + ".";
-                } else if (size == 2) {
-                    if (ndx == 0) {
-                        output += t.getShortDescription() + " and ";
-                        ndx++;
-                    } else {
-                        output += t.getShortDescription() + ".";
-                    }
+            if (size > 2) {
+                if (ndx < size - 1) {
+                    output += t.getShortDescription() + ", ";
+                    ndx++;
+                } else {
+                    output += "and " + t.getShortDescription() + ".";
                 }
-            
+            } else if (size == 1) {
+                output += t.getShortDescription() + ".";
+            } else if (size == 2) {
+                if (ndx == 0) {
+                    output += t.getShortDescription() + " and ";
+                    ndx++;
+                } else {
+                    output += t.getShortDescription() + ".";
+                }
+            }
+
         }
         w.println(output);
 

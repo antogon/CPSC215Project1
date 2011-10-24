@@ -14,13 +14,13 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author toiletplumber
  */
-public class InventoryStrategy implements VerbStrategy{
+public class InventoryStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         w.println("Player Inventory");
         w.println("******************************");
-        
-        for(AdventureTarget t : e.getPlayerInventory()){
+
+        for (AdventureTarget t : e.getPlayerInventory()) {
             w.println(t.getShortDescription());
         }
     }
