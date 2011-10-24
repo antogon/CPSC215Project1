@@ -1,6 +1,7 @@
 <Game>
 	<Location
 		name="Phonebooth"
+                isInit = "Initial Location"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
 dirty for you to see outside."
          
@@ -92,7 +93,6 @@ dirty for you to see outside."
 
 	<Location
 		name="Space"
-                       isInit = "Initial Location"
 		desc="Upon opening the door your are sucked into outer space.  
 You have failed to pack a spacesuit and cannot breath.  Enjoy the last 14 to 15
 seconds of your life before you pass out and die, unless of course
