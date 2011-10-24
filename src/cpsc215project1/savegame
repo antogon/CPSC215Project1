@@ -85,6 +85,7 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
             >
             </Item>
 
+
             <Item
                 name="cat"
                 desc="The cat is surfing on a rainbow and flying across the sky at an amazing speed.
@@ -92,8 +93,10 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                        even though you are floating in the void of space.  You are saddened
                         that these are the last sounds you will ever hear. The cat is close enough
                         for you to pet..."
-                canDo="examine=>examine, take=>take"
-                canBe="examine, take"
+                uses="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!!11
+                |cat|Your ears are bleeding furiously from the repetitive song..."
+                canDo="examine=>examine, take=>take, pet=>use"
+                canBe="examine, take, use"
                 alisases="nyan, feline, annoying, fuck"
             >
             </Item>
