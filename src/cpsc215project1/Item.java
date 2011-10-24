@@ -100,6 +100,21 @@ public class Item extends Target {
             ((Item) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
+            if(myDirectObjectCommands.containsKey("use"))
+            {
+                String key = myDirectObjectCommands.get("use");
+                boolean canBe = myIndirectObjectCommands.contains(key);
+
+                if (canBe && key.equals("examine")) {
+                    new ExamineStrategy().doCommand(c, e, w);
+                } else if (canBe && key.equals("take")) {
+                    new TakeStrategy().doCommand(c, e, w);
+                } else if (canBe && key.equals("drop")) {
+                    new DropStrategy().doCommand(c, e, w);
+                } else if (canBe && key.equals("damage")) {
+                    new DamageStrategy().doCommand(c, e, w);
+                }
+            }
         } else {
             w.println("You might want to pick that up first.\n");
         }
