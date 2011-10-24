@@ -27,11 +27,9 @@ public class LookStrategy implements VerbStrategy {
         }
 
         size = visibleItems.size();
-        System.out.println(size);
 
         for (AdventureTarget t : visibleItems) {
                 if (size > 2) {
-                    System.out.println(">2");
                     if (ndx < size - 1) {
                         output += t.getShortDescription() + ", ";
                         ndx++;
@@ -39,10 +37,8 @@ public class LookStrategy implements VerbStrategy {
                         output += "and " + t.getShortDescription() + ".";
                     }
                 } else if (size == 1) {
-                    System.out.println("=1");
                     output += t.getShortDescription() + ".";
                 } else if (size == 2) {
-                    System.out.println("=2");
                     if (ndx == 0) {
                         output += t.getShortDescription() + " and ";
                         ndx++;
