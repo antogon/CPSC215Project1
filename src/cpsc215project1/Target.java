@@ -26,6 +26,7 @@ public abstract class Target implements AdventureTarget {
 
         protected boolean isUsable = false;
         protected boolean isVisible = true;
+        protected HashMap<String, String[]> myUseList;
 
 	/**
 	 * Default constructor for the <code>Target</code> class.
@@ -52,6 +53,7 @@ public abstract class Target implements AdventureTarget {
 		myIndirectObjectCommands = indirectObjCmds;
 		myDirectObjectCommands = directObjCmds;
 		myAliases = aliases;
+                myUseList = new HashMap<String, String[]>();
 
 	}
 
@@ -142,6 +144,16 @@ public abstract class Target implements AdventureTarget {
         public void setVisible(boolean a)
         {
             isVisible = a;
+        }
+
+        public void addUse(String key, String[] vals)
+        {
+            myUseList.put(key,vals);
+        }
+
+        public String getName()
+        {
+            return myName;
         }
 
 }

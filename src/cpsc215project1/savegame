@@ -10,6 +10,9 @@ dirty for you to see outside."
 			desc="It has a slot for quarters and seems to just barely
                                hang on the wall..."
 			canDo="break=>damage, examine=>examine, damage=>damage, take=>take"
+                        uses="You put a quarter into the coin slot and it starts ringing.
+                        This isn't how phones work but you figure you should answer it anyway.
+                        |quarter|The phone is now ringing;"
 			canBe="answer, use, examine, damage, take"
                         aliases="telephone, phone, receiver"
 		>
@@ -19,6 +22,7 @@ dirty for you to see outside."
 			desc="You feel sure you could get 25 pennies for this."
 			canDo="get=>take, examine=>examine, take=>take, drop=>drop"
 			canBe="answer, take, examine, use, drop"
+                        
                         aliases="coin"
 		>
 		</Item>

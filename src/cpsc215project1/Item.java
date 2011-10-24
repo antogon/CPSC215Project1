@@ -45,18 +45,20 @@ public class Item extends Target {
     }
 
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
-        
-
-        if(c.getVerb().equals("use") && myIndirectObjectCommands.contains(c.getVerb()) && ((Item) c.getDirectObject()).getUsable())
+        if(c.getVerb().equals("use")
+                && myIndirectObjectCommands.contains(c.getVerb())
+                && ((Item) c.getDirectObject()).getUsable()
+                && myUseList.containsKey(((Target)c.getDirectObject()).getName()))
         {
-            w.println("You put a quarter into the coin slot and it starts ringing."
-                    + "This isn't how phones work but you figure you should answer "
-                    + "it anyway.");
+            String[] effects = myUseList.get(((Target)c.getDirectObject()).getName());
+            w.println(effects[0]);
             ((Item) c.getIndirectObject()).setUsable(true);
             ((Item) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
-            ((Location) e.getPlayerLocation()).updateDescription("The phone is now ringing");
+            ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
         }
-        else {w.println("You might want to pick that up first");}
+        else {
+            w.println("You might want to pick that up first.\n");
+        }
     }
 }
