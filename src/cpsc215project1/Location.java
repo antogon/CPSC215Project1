@@ -37,9 +37,10 @@ public class Location implements AdventureLocation {
         if (c.getVerb().equals("look")) {
             new LookStrategy().doCommand(c, e, w);
         }
-        if (c.getVerb().equals("inventory")) {
+        else if (c.getVerb().equals("inventory")) {
             new InventoryStrategy().doCommand(c, e, w);
         }
+        else { throw new DoNotUnderstandException(c); }
     }
 
     public String getDescription() {
