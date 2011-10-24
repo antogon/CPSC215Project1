@@ -12,6 +12,7 @@ public class Location implements AdventureLocation {
     private String myDescription;
     private String myUpdatedDescription;
     private ArrayList<Location> myWorld;
+    private int myBombTimer;
     
     public Location(String name, String desc, ArrayList<Location> w) {
         myName = name;

@@ -69,7 +69,7 @@ public class MyParser implements AdventureParser {
                     //assigns the indirect object
                     if (i == 1) {
                         indObj = tempVar;
-                        indObjInv = parser.next();
+                        indObjInv = tempParse;
                     }
                     i++;
                 }
