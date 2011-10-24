@@ -10,18 +10,22 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author amalvagomes
  */
-public class TakeStrategy implements VerbStrategy{
+public class TakeStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         AdventureTarget out = null;
-        for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
-        {
-            if(t == c.getDirectObject()){
-				out=t;
-            } 
+
+        for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+            if (((Target) t).getVisible()) {
+                if (t == c.getDirectObject()) {
+                    out = t;
+                    e.addToPlayerInventory(out);
+                    ((Item) out).setUsable(true);
+                    e.getPlayerLocation().removeLocalTarget(out);
+                    w.println("You pick up " + out.getShortDescription());
+                    
+                }
+            }
         }
-        e.addToPlayerInventory(out);
-        e.getPlayerLocation().removeLocalTarget(out);
     }
-    
 }

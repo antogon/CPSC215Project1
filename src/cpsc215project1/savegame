@@ -17,7 +17,7 @@ dirty for you to see outside."
                 <Item
 			name="quarter"
 			desc="You feel sure you could get 25 pennies for this."
-			canDo="scratch=>damage, examine=>examine, take=>take, pick up=>take, drop=>drop"
+			canDo="get=>take, examine=>examine, take=>take, drop=>drop"
 			canBe="answer, take, examine, use, drop"
                         aliases="coin"
 		>
@@ -57,7 +57,7 @@ dirty for you to see outside."
 			name="door"
 			desc="It's a glass sliding door that doesn't seem to
 want to open."
-			canDo="break=>open, open=>open, close=>close, enter=>Space, examine=>examine"
+			canDo="break=>open, use=>open, open=>open, close=>close, enter=>Space, examine=>examine"
 			canBe="open, close, examine"
                         aliases="door"
 		>

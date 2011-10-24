@@ -129,6 +129,10 @@ public abstract class Target implements AdventureTarget {
         {
             isUsable = a;
         }
+        public boolean getUsable()
+        {
+            return isUsable;
+        }
 
         public boolean getVisible()
         {
