@@ -68,6 +68,12 @@ public abstract class Target implements AdventureTarget {
      *    text.
      */
     public boolean canBeReferredToAs(String text) {
+        System.out.println(myName);
+        for(String s : myAliases)
+        {
+            System.out.println("\t" + s);
+            System.out.flush();
+        }
         return (text.equals(myName) || myAliases.contains(text));
     }
 

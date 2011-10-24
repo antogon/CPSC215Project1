@@ -67,12 +67,17 @@ public class GameReader {
         if (eleName.equals("Item")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
+            int startNDX;
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            int startNDX = cB.lastIndexOf(',') + 2;
-            b.add(cB.substring(startNDX, cB.length()));
+            if (startNDX == 0) {
+                b.add(cB);
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                b.add(cB.substring(startNDX, cB.length()));
+            }
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
             for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
@@ -86,6 +91,9 @@ public class GameReader {
             for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
+            }
+            if (startNDX == 0) {
+                ali.add(cB);
             }
             Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
             cB = curr.getAttributeValue("visibility");
@@ -105,7 +113,7 @@ public class GameReader {
                 a.addUseIO(key, val);
             }
             cB = curr.getAttributeValue("usesDO");
-            //uses must be as: [message one]|[object]|[scene effect];
+            //uses must be as: [message one]|[verb]|[scene effect];
             for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
                 String[] val = new String[2];
                 val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
@@ -126,12 +134,17 @@ public class GameReader {
         if (eleName.equals("Person")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
+            int startNDX;
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            int startNDX = cB.lastIndexOf(',') + 2;
-            b.add(cB.substring(startNDX, cB.length()));
+            if (startNDX == 0) {
+                b.add(cB);
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                b.add(cB.substring(startNDX, cB.length()));
+            }
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
             for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
@@ -146,10 +159,37 @@ public class GameReader {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            Person a = new Person(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
+            if (startNDX == 0) {
+                ali.add(cB);
+            }
+            Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
             cB = curr.getAttributeValue("visibility");
             if (cB != null && cB.equals("false")) {
                 a.setVisible(false);
+            }
+            cB = curr.getAttributeValue("usesIO");
+            //uses must be as: [message one]|[object]|[scene effect];
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
+                String[] val = new String[2];
+                val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                String key = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                val[1] = cB.substring(startNDX, cB.indexOf(";", startNDX));
+                startNDX = cB.indexOf(";", startNDX) + 2;
+                a.addUseIO(key, val);
+            }
+            cB = curr.getAttributeValue("usesDO");
+            //uses must be as: [message one]|[verb]|[scene effect];
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
+                String[] val = new String[2];
+                val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                String key = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                val[1] = cB.substring(startNDX, cB.indexOf(";", startNDX));
+                startNDX = cB.indexOf(";", startNDX) + 2;
+                a.addUseDO(key, val);
             }
             String pa = p.getAttributeValue("name");
             for (Location l : myWorld) {
@@ -161,12 +201,17 @@ public class GameReader {
         if (eleName.equals("Portal")) {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
-            for (int startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
+            int startNDX;
+            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            int startNDX = cB.lastIndexOf(',') + 2;
-            b.add(cB.substring(startNDX, cB.length()));
+            if (startNDX == 0) {
+                b.add(cB);
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                b.add(cB.substring(startNDX, cB.length()));
+            }
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
             for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
@@ -181,10 +226,37 @@ public class GameReader {
                 ali.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            Portal a = new Portal(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
+            if (startNDX == 0) {
+                ali.add(cB);
+            }
+            Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
             cB = curr.getAttributeValue("visibility");
             if (cB != null && cB.equals("false")) {
                 a.setVisible(false);
+            }
+            cB = curr.getAttributeValue("usesIO");
+            //uses must be as: [message one]|[object]|[scene effect];
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
+                String[] val = new String[2];
+                val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                String key = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                val[1] = cB.substring(startNDX, cB.indexOf(";", startNDX));
+                startNDX = cB.indexOf(";", startNDX) + 2;
+                a.addUseIO(key, val);
+            }
+            cB = curr.getAttributeValue("usesDO");
+            //uses must be as: [message one]|[verb]|[scene effect];
+            for (startNDX = 0; cB != null && cB.indexOf(';', startNDX) > 0;) {
+                String[] val = new String[2];
+                val[0] = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                String key = cB.substring(startNDX, cB.indexOf("|", startNDX));
+                startNDX = cB.indexOf("|", startNDX) + 1;
+                val[1] = cB.substring(startNDX, cB.indexOf(";", startNDX));
+                startNDX = cB.indexOf(";", startNDX) + 2;
+                a.addUseDO(key, val);
             }
             String pa = p.getAttributeValue("name");
             for (Location l : myWorld) {
