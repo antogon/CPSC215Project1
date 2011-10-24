@@ -12,10 +12,12 @@ dirty for you to see outside."
                         usesIO="You put a quarter into the coin slot and it starts ringing.
                         This isn't how phones work but you figure you should answer it anyway.
                         |quarter|The phone is now ringing;"
-                        usesDO="You answer the phone and a voice on the other end says '
+                        usesDO="You answer the phone and a raspy voice on the other end says '
                                 Good luck escaping the phone booth.  A clue to help is right 
-                                under your nose!' You find the riddle to be cheesy but you
-                                really should concentrate on escaping this glass box.|answer|
+                                under your nose! Mwuhahahhahaha!!' You find the riddle to be cheesy
+                                and the cliche laugh to be more than a little contrived, but you
+                                really should concentrate on escaping this glass prison.  Another
+                                look around probably wouldn't hurt anything...|answer|
                                 You notice a reflection in the glass;"
 			canDo="break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
@@ -48,7 +50,7 @@ dirty for you to see outside."
 			canDo="break=>damage, visible=>crowbar, invisible=>reflection"
 			canBe="damage, fart"
                         usesDO="You can barely make out the grimy reflection of your
-                               face in the dingy glass.  Still, you are awestruck by your
+                               face in the dingy glass but you are still awestruck by your
                                 overwhelming beauty. Upon closer inspection you notice something
                                 under your nose.  You go to pick it and a crowbar falls out of
                                 your nose and hits the ground.|examine|Time to show that
@@ -57,25 +59,27 @@ dirty for you to see outside."
                         visibility="false"
 		>
 		</Item>
+
                 <Item
-			name="spacesuit"
-			desc="It appears to be an old soviet era spacesuit from the
-                               60's and is lying awkwardly in the corner.  It seems
-                                to be in good condition, however, a hand sewn patch
-                                 on the leg gives you pause..."
-			canDo="break=>damage, examine=>examine, get=>take, take=>take, grab=>take, drop=>drop"
-			canBe="damage, examine, take, drop"
-                        aliases="suit, space suit"
-                        usesDO="You kick the hard metal helmet, stubbing your toe.
-                        |kick|The spacesuit has a broken windshield;"
-		>
-		</Item>
+                        name="picture"
+                        desc="A worn out picture of Gene Autry is hanging crooked on the wall.
+                              While the memories of the singing cowboy make you feel more than
+                              a little nostalgic, you should probably focus on getting out
+                              of this phone booth..."
+                        canDo="examine=>examine, damage=>damage, take=>take, get=>take"
+                        canBe="examine, damage, take"
+                        aliases="photo, gene, cowboy"
+                        visibility="true"
+                   >
+                   </Item>
+
 
 		<Portal
 			name="door"
-			desc="It's a glass sliding door that doesn't seem to
-                              want to open."
-			canDo="break=>open, use=>open, open=>open, close=>close, enter=>Space, examine=>examine"
+			desc="It is an old sliding door and while it is quite
+                              ornate in design it appears to be jammed. However,
+                              its seems that you could easily force it open if you had the right tool..."
+			canDo="use=>open, close=>close, enter=>Space, examine=>examine"
 			canBe="open, close, use, examine"
                         usesIO="You swing with all of the speed that a confined space will allow you
                                 and manage to lodge the crowbar into the crack in the door.  You pry
@@ -107,8 +111,8 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 desc="The cat is surfing on a rainbow and flying across the sky at an amazing speed.
                        Curiously, you can hear it singing an extremely annoying song,
                        even though you are floating in the void of space.  You are saddened
-                        that these are the last sounds you will ever hear. The cat is close enough
-                        for you to pet..."
+                        that these are the last sounds you will ever hear. You have an overwhelming
+                        desire to attempt to pet the cat as it passes by..."
                 canDo="examine=>examine, take=>take, pet=>use"
                 canBe="examine, take, use"
                 alisases="nyan, feline, annoying, fuck"
@@ -116,6 +120,21 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 |pet|The repetitive song is making your ears bleed...;"
             >
             </Item>
+
+                <Item
+			name="spacesuit"
+			desc="It appears to be an old soviet era spacesuit from the
+                               60's and is floating awkwardly nearby.  It seems
+                                to be in good condition, however, a hand sewn patch
+                                 on the leg gives you pause.
+                                 In a cruel twist of fate it is just beyond your reach."
+			canDo="break=>damage, examine=>examine"
+			canBe="damage, examine"
+                        aliases="suit, space suit"
+                        usesDO="You kick the hard metal helmet, stubbing your toe.
+                        |kick|The spacesuit has a broken windshield;"
+		>
+		</Item>
 
             <Item
                 name="horse"
@@ -133,8 +152,8 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 name="phonebooth"
                 desc="The phone booth you stepped out of has floated beyond your reach.
                       You wonder where it is going and why you left it in the first place..."
-                canDo="examine=>examine, take=>take"
-                canBe="examine, take"
+                canDo="examine=>examine"
+                canBe="examine"
                 alisases="booth, TARDIS"
             >
             </Item>
