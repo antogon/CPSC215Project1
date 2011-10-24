@@ -25,6 +25,7 @@ public class Item extends Target {
             AdventureWindow w) throws DoNotUnderstandException {
         String key = myDirectObjectCommands.get(c.getVerb());
         boolean canBe = myIndirectObjectCommands.contains(key);
+
         if(canBe && key.equals("examine")){
             new ExamineStrategy().doCommand(c,e,w);
         }

@@ -7,8 +7,9 @@ dirty for you to see outside."
 	>
 		<Item
 			name="phone"
-			desc="It has a slot for quarters."
-			canDo="break=>damage, examine=>examine"
+			desc="It has a slot for quarters and seems to just barely
+                               hang on the wall..."
+			canDo="break=>damage, examine=>examine, damage=>damage"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
 		>
@@ -22,13 +23,27 @@ dirty for you to see outside."
 		>
 		</Item>
                 <Item
-			name="your face"
-			desc="Oh my, looking at this thing hurts you."
-			canDo="break=>damage"
-			canBe="damage"
+			name="reflection"
+			desc="You can barely make out the grimy reflection of your
+                               face in the dingy glass.  You are awestruck by your
+                                overwhelming beauty."
+			canDo="break=>damage, examine=>examine"
+			canBe="damage, examine"
                         aliases="face"
 		>
 		</Item>
+                <Item
+			name="spacesuit"
+			desc="It appears to be an old soviet era spacesuit from the
+                               60's and is lying awkwarding in the corner.  It seems
+                                to be in good condition, however, a hand sewn patch
+                                 on the leg gives you pause..."
+			canDo="break=>damage, examine=>examine, take=>take, grab=>take, drop=>drop"
+			canBe="damage, examine, take, drop"
+                        aliases="suit, space suit"
+		>
+		</Item>
+
 		<Portal
 			name="door"
 			desc="It's a glass sliding door that doesn't seem to
@@ -39,12 +54,20 @@ want to open."
 		>
 		</Portal>
 	</Location>
+
 	<Location
 		name="Space"
 		desc="Upon opening the door your are sucked into outer space.  
-You have failed to pack a space suit and cannot breath.  However you are happy
-to have escaped the booth.  Good job!"
-	>
-		
+You have failed to pack a spacesuit and cannot breath.  Enjoy the last 14 to 15
+seconds of your life before you pass out and die.  Good job!"
+        >
+            <Item
+                name="planet"
+                desc="What appears to be the planet Mars is floating peacefully and indifferently through the vast void of space."
+                canDo="examine=>examine"
+                canBe="examine"
+                aliases="globe, sphere, mars"
+            >
+            </Item>
 	</Location>
 </Game>

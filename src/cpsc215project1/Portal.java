@@ -31,9 +31,11 @@ public class Portal extends Target {
         }
         else if(canBe && key.equals("open")){
             isOpen=true;
+            this.updateDescription("The door is open.");
         }
         else if(canBe && key.equals("close")){
             isOpen=false;
+            this.updateDescription("The door is closed.");
         }
         else
         {
@@ -47,7 +49,7 @@ public class Portal extends Target {
                     }
                     else
                     {
-                        w.println(myName + " is closed.  You try to enter it" +
+                        w.println("The " + myName + " is closed.  You try to enter it" +
                                 " and fail dismally, hitting your head.");
                     }
                     break;
