@@ -10,16 +10,14 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author toiletplumber
  */
-public class ExamineStrategy implements VerbStrategy{
+public class ExamineStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-        
-        for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
-        {
-            if(t.getShortDescription().equals(c.getDirectObject().getShortDescription())){
+
+        for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription())) {
                 w.println(c.getDirectObject().getDescription());
-            } 
+            }
         }
     }
-    
 }

@@ -13,58 +13,56 @@ public class Location implements AdventureLocation {
     private String myUpdatedDescription;
     private ArrayList<Location> myWorld;
     private int myBombTimer;
-    
+
     public Location(String name, String desc, ArrayList<Location> w) {
         myName = name;
         myUpdatedDescription = desc;
         myDescription = desc;
-	myLocalTargets = new HashSet<AdventureTarget>();
+        myLocalTargets = new HashSet<AdventureTarget>();
         myWorld = w;
     }
-    
+
     public void addLocalTarget(AdventureTarget t) {
-	myLocalTargets.add(t);
+        myLocalTargets.add(t);
     }
 
     public boolean containsLocalTarget(AdventureTarget t) {
-	return myLocalTargets.contains(t);
+        return myLocalTargets.contains(t);
     }
 
     public void doCommand(
             AdventureCommand c,
             AdventureEngine e,
-            AdventureWindow w) throws DoNotUnderstandException {   
-        if(c.getVerb().equals("look")){
-            new LookStrategy().doCommand(c,e,w);
+            AdventureWindow w) throws DoNotUnderstandException {
+        if (c.getVerb().equals("look")) {
+            new LookStrategy().doCommand(c, e, w);
         }
-        if(c.getVerb().equals("inventory")){
-            new InventoryStrategy().doCommand(c,e,w);
+        if (c.getVerb().equals("inventory")) {
+            new InventoryStrategy().doCommand(c, e, w);
         }
     }
 
     public String getDescription() {
         return myUpdatedDescription;
     }
-    
+
     public void updateDescription(String iDiscription) {
         myUpdatedDescription = myDescription + "\n" + iDiscription;
     }
 
     public Set<AdventureTarget> getLocalTargets() {
-	return myLocalTargets;
+        return myLocalTargets;
     }
 
     public void removeLocalTarget(AdventureTarget t) {
-	myLocalTargets.remove(t);
+        myLocalTargets.remove(t);
     }
 
-    public String getName()
-    {
-	return myName;
+    public String getName() {
+        return myName;
     }
 
-    public ArrayList<Location> getWorld()
-    {
-        return (ArrayList<Location>)(myWorld.clone());
+    public ArrayList<Location> getWorld() {
+        return (ArrayList<Location>) (myWorld.clone());
     }
 }

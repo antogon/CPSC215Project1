@@ -14,10 +14,8 @@ import edu.clemson.cs.hamptos.adventure.*;
  */
 public class Person extends Target {
 
-	
-
     public Person(String name, String desc, ArrayList<String> b, HashMap<String, String> d, ArrayList<String> a) {
-	super(name, desc, b, d, a);
+        super(name, desc, b, d, a);
     }
 
     public void doCommandTo(
@@ -26,8 +24,8 @@ public class Person extends Target {
             AdventureWindow w) throws DoNotUnderstandException {
         String key = myDirectObjectCommands.get(c.getVerb());
         boolean canBe = myIndirectObjectCommands.contains(key);
-        if(canBe && key.equals("examine")){
-            new ExamineStrategy().doCommand(c,e,w);
+        if (canBe && key.equals("examine")) {
+            new ExamineStrategy().doCommand(c, e, w);
         }
     }
 

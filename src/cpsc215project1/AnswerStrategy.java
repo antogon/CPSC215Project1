@@ -13,10 +13,8 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author toiletplumber
  */
-public class AnswerStrategy implements VerbStrategy{
+public class AnswerStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-      
     }
-    
 }
