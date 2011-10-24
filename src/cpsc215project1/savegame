@@ -86,7 +86,8 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 desc="The cat is surfing on a rainbow and flying across the sky at an amazing speed.
                        Curiously, you can hear it singing an extremely annoying song,
                        even though you are floating in the void of space.  You are saddened
-                        that these are the last sounds you will ever hear."
+                        that these are the last sounds you will ever hear. The cat is close enough
+                        for you to pet..."
                 canDo="examine=>examine, take=>take"
                 canBe="examine, take"
                 alisases="nyan, feline, annoying, fuck"
@@ -95,7 +96,8 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
 
             <Item
                 name="horse"
-                desc="You find the horse to be amazing and you have an overwhelming desire to lick it."
+                desc="To your left there is a horse who is grinning oddly.
+                      You find the horse to be amazing and you have an overwhelming desire to lick it."
                 canDo="examine=>examine, take=>take"
                 canBe="examine, take"
                 alisases="thoroughbred, equine, beast"
