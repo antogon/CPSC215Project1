@@ -62,6 +62,28 @@ public class Item extends Target {
             String[] effects = myUseListDO.get(c.getVerb());
             w.println(effects[0]);
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
+            if(myDirectObjectCommands.containsKey("visible"))
+            {
+                String objName = myDirectObjectCommands.get("visible");
+                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
+                {
+                    if(t.canBeReferredToAs(objName))
+                    {
+                        ((Target)t).setVisible(!((Target)t).getVisible());
+                    }
+                }
+            }
+            if(myDirectObjectCommands.containsKey("invisible"))
+            {
+                String objName = myDirectObjectCommands.get("invisible");
+                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
+                {
+                    if(t.canBeReferredToAs(objName))
+                    {
+                        ((Target)t).setVisible(false);
+                    }
+                }
+            }
         } else {
             throw new DoNotUnderstandException(c);
         }
