@@ -14,9 +14,11 @@ public class DamageStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
 
+
         for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
             if (t.getShortDescription().equals(c.getDirectObject().getShortDescription())) {
-                ((Target) t).updateDescription("It appears to be damaged.");
+                w.println("You hit the " +((Target) t).getTargetName() + ".");
+                ((Target) t).appendDescription("It appears to be damaged.");
                 ((Target) t).setUsable(false);
             }
         }

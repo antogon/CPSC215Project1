@@ -17,7 +17,7 @@ dirty for you to see outside."
                                 under your nose!' You find the riddle to be cheesy but you
                                 really should concentrate on escaping this glass box.|answer|
                                 You notice a reflection in the glass;"
-			canDo="break=>damage, examine=>examine, damage=>damage, visible=>reflection"
+			canDo="break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
 		>
@@ -34,8 +34,8 @@ dirty for you to see outside."
                 <Item
 			name="crowbar"
 			desc="A long, hard, steel rod of pain."
-			canDo="break=>damage, take=>take, drop=>drop"
-			canBe="take, drop"
+			canDo="break=>damage, take=>take, drop=>drop, use=>use"
+			canBe="take, drop, use"
                         aliases=""
                         visibility="false"
 		>
