@@ -3,7 +3,7 @@
 		name="Phonebooth"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
 dirty for you to see outside."
-                isInit = "Initial Location"
+         
 	>
 		<Item
 			name="phone"
@@ -36,8 +36,8 @@ dirty for you to see outside."
                 <Item
 			name="crowbar"
 			desc="A long, hard, steel rod of pain."
-			canDo="break=>damage, take=>take, drop=>drop, use=>use"
-			canBe="take, drop, use"
+			canDo="break=>damage, take=>take, drop=>drop, use=>use, examine=>examine"
+			canBe="take, drop, use, examine"
                         aliases=""
                         visibility="false"
 		>
@@ -48,7 +48,7 @@ dirty for you to see outside."
                                face in the dingy glass.  Still, you are awestruck by your
                                 overwhelming beauty."
 			canDo="break=>damage, visible=>crowbar, invisible=>reflection"
-			canBe="damage, fart"
+			canBe="damage, yo"
                         usesDO="You can barely make out the grimy reflection of your
                                face in the dingy glass but you are still awestruck by your
                                 overwhelming beauty. Upon closer inspection you notice something
@@ -92,9 +92,12 @@ dirty for you to see outside."
 
 	<Location
 		name="Space"
+                       isInit = "Initial Location"
 		desc="Upon opening the door your are sucked into outer space.  
 You have failed to pack a spacesuit and cannot breath.  Enjoy the last 14 to 15
-seconds of your life before you pass out and die.  The phonebooth has floated out of reach."
+seconds of your life before you pass out and die, unless of course
+                you can find a way out of this
+                situation. The phonebooth has floated out of reach."
         >
             <Item
                 name="planet"
@@ -152,26 +155,44 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 name="phonebooth"
                 desc="The phone booth you stepped out of has floated beyond your reach.
                       You wonder where it is going and why you left it in the first place..."
-                canDo="examine=>examine"
-                canBe="examine"
+                canDo="examine=>examine, damage=>damage"
+                canBe="examine, damage"
                 alisases="booth, TARDIS"
             >
             </Item>
             <Portal
-                name="blackhole"
-                desc="A large black hole that appears to be sucking you
-                      slowly in its general direction."
-                canBe="open, close"
-                canDo="enter=>Lab, open=>open"
-                aliases="hole"
+                name="wormhole"
+                desc="A large portal that appears to be sucking you
+                      slowly in its general direction. It will need to be opened if
+                      you hope to espace through it..."
+                canBe="open, close, examine, use"
+                canDo="enter=>Lab, use=>open, examine=>examine"
+                aliases="hole, portal, blackhole"
+                usesIO="Upon pressing the button a great light bursts from the portal
+                        and as time seems to bend and change your body.  You are certain you
+                        could now enter the portal and escape the lonely void of space.
+                        |button|The portal is open.
+                Go towards the light go towards the light!;"
             >
             </Portal>
+
+                <Item
+			name="button"
+			desc="An interesting device that immediatley dazzles your eyes.  It
+                                seems to call to you."
+			canDo="examine=>examine, break=>damage, take=>take, drop=>drop, use=>use"
+			canBe="take, drop, use, examine"
+                        aliases=""
+                        visibility="true"
+		>
+		</Item>
 	</Location>
         <Location
             name="Lab"
-            desc="You are surrounded by people typing away at terminals in the dim light.
+            desc=" You are surrounded by people typing away at terminals in the dim light.
                     The walls appear to have a purple tinge and you cannot help but feel the urge to vomit.
-                    There is a smell lingering in one corner near a large, particularly hairy man."
+                    There is a smell lingering in one corner near a large, particularly hairy man.  Still,
+                    it beats the cold of space..."
         >
             <Person
                 name="man"
@@ -185,17 +206,6 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 canDo="examine=>examine"
             >
             </Person>
-            <Item
-                name="terminal"
-                desc="A rather ratty machine.  The front face is covered in dust.
-                      Upon further inspection, you realize that this machine was
-                      intended to pass as a computer in some other dimension."
-                canBe="take, drop, use, examine"
-                canDo="take=>take, drop=>drop, examine=>examine"
-                usesDO="The terminal prints out one statement and one statement only.
-                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....
-                        |use|The walls of the lab are shaking from the wrath of the
-                        sysadmin gods.;"
             >
             </Item>
             <Portal
@@ -205,5 +215,19 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 canBe="open, close"
             >
             </Portal>
+            <Item
+                name="computer"
+                desc="A dell computer is sitting on front of you.  The light from the screen hurts
+                      your eyes but it is hard to tell whether this is the fault of the screen or the
+                      recent extreme pressure changes you've been exposed to..."
+                aliases="ubuntu, dell, thankgoditsnotrunningunity"
+                canBe="take, drop, use, examine"
+                canDo="damage=>damage, sudorm-rfv=>damage, take=>take, drop=>drop, examine=>examine"
+                usesDO="The terminal prints out one statement and one statement only.
+                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....
+                        |use|The walls of the lab are shaking from the wrath of the
+                        sysadmin gods.;"
+                >
+                </Item>
         </Location>
 </Game>
