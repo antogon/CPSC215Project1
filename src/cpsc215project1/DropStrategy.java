@@ -18,12 +18,14 @@ public class DropStrategy implements VerbStrategy {
             if (((Target) t).getVisible()) {
                 if (t == c.getDirectObject()) {
                     out = t;
-                    e.removeFromPlayerInventory(out);
-                    ((Item) out).setUsable(false);
-                    e.getPlayerLocation().addLocalTarget(out);
-                    w.println("You drop " + out.getShortDescription());
+                    
                 }
             }
+            
         }
+        e.removeFromPlayerInventory(out);
+        ((Item) out).setUsable(false);
+        e.getPlayerLocation().addLocalTarget(out);
+        w.println("You drop " + out.getShortDescription());
     }
 }

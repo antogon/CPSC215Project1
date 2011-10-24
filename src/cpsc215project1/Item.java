@@ -47,7 +47,7 @@ public class Item extends Target {
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
         
 
-        if(c.getVerb().equals("use") && myIndirectObjectCommands.contains(c.getVerb()))
+        if(c.getVerb().equals("use") && myIndirectObjectCommands.contains(c.getVerb()) && ((Item) c.getDirectObject()).getUsable())
         {
             w.println("You put a quarter into the coin slot and it starts ringing."
                     + "This isn't how phones work but you figure you should answer "
@@ -57,5 +57,6 @@ public class Item extends Target {
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription("The phone is now ringing");
         }
+        else {w.println("You might want to pick that up first");}
     }
 }
