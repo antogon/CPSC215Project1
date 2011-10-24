@@ -9,8 +9,18 @@ import java.util.HashMap;
 import edu.clemson.cs.hamptos.adventure.*;
 
 /**
+ * <p>A <code>Portal</code> is a type of {@link Target} used to represent
+ * a one-way path between locations. Used as the direct
+ * object of a command, an <code>Portal</code> may be:<ul>
+ * <li>examined (give more information to the player)</li>
+ * <li>entered (transport player to the opposite side)</li>
+ * <li>opened</li>
+ * <li>closed</li>
+ * Used as an indirect object, <code>Portal</code> may have an effect on the
+ * command's direct object by invoking anything in the XML file's
+ * <code>usesIO</code> attribute.</p>
  *
- * @author amalvag
+ * @author ApertureScience
  */
 public class Portal extends Target {
 

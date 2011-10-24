@@ -17,7 +17,7 @@ import java.util.HashMap;
  * <li>damaged (rendered unusable)</li></ul>
  * Used as an indirect object, <code>Item</code>s have an effect on the
  * command's direct object by invoking anything in the XML file's
- * <code>uses</code> attribute.</p>
+ * <code>usesIO</code> attribute.</p>
  */
 public class Item extends Target {
 
