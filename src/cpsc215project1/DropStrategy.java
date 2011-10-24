@@ -26,6 +26,6 @@ public class DropStrategy implements VerbStrategy {
         e.removeFromPlayerInventory(out);
         ((Item) out).setUsable(false);
         e.getPlayerLocation().addLocalTarget(out);
-        w.println("You drop " + out.getShortDescription());
+        w.println("You drop " + out.getShortDescription() + ".");
     }
 }
