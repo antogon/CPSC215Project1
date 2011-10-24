@@ -17,6 +17,10 @@ public class GameReader
 	private AdventureLocation myLocation;
 	private ArrayList<Location> myWorld;
 
+        /*
+         * <p>Contructs a new GameReader that reads the game passed in.</p>
+         * @param filePath the path to the XML game file
+         */
 	public GameReader(String filePath)
 	{
 		try
@@ -42,11 +46,23 @@ public class GameReader
                 }
 	}
 
+        /*
+         * <p>Gets the initial location after parsing the XML file.
+         * This method must not be called before a call to buildGame is made.</p>
+         *
+         * @return Initial location of game.
+         */
 	public AdventureLocation getInitialLocation()
 	{
 		return myLocation;
 	}
 
+        /*
+         * <p>Parses the file given in the constructor as a game.</p>
+         *
+         * @param curr The element given as the current element for recursion.
+         * @param p The parent of the current element.
+         */
 	private void buildGame(Element curr, Element p)
 	{
 		String eleName = curr.getLocalName();
@@ -93,6 +109,32 @@ public class GameReader
                         {
                             a.setVisible(false);
                         }
+                        cB = curr.getAttributeValue("usesIO");
+                        //uses must be as: [message one]|[object]|[scene effect];
+                        for(startNDX = 0; cB!=null && cB.indexOf(';', startNDX)>0; startNDX=startNDX)
+                        {
+                            String[] val = new String[2];
+                            val[0] = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            String key = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            val[1] = cB.substring(startNDX,cB.indexOf(";", startNDX));
+                            startNDX = cB.indexOf(";",startNDX)+2;
+                            a.addUseIO(key, val);
+			}
+                        cB = curr.getAttributeValue("usesDO");
+                        //uses must be as: [message one]|[object]|[scene effect];
+                        for(startNDX = 0; cB!=null && cB.indexOf(';', startNDX)>0; startNDX=startNDX)
+                        {
+                            String[] val = new String[2];
+                            val[0] = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            String key = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            val[1] = cB.substring(startNDX,cB.indexOf(";", startNDX));
+                            startNDX = cB.indexOf(";",startNDX)+2;
+                            a.addUseDO(key, val);
+			}
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
 			{
