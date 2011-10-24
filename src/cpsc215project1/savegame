@@ -173,5 +173,37 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                     The walls appear to have a purple tinge and you cannot help but feel the urge to vomit.
                     There is a smell lingering in one corner near a large, particularly hairy man."
         >
+            <Person
+                name="man"
+                desc="A large man.  He appears to be covered from head to toe in hair and smells as
+                      if he has not bathed in decades.  Approaching him may very well be the last
+                      mistake you ever make."
+                usesDO="The man grunts in your direction and continues typing at his terminal.|talk|
+                        After you spoke to the man, the other people in the room appear to have a
+                        newfound respect for you.;"
+                canBe="examine"
+                canDo="examine=>examine"
+            >
+            </Person>
+            <Item
+                name="terminal"
+                desc="A rather ratty machine.  The front face is covered in dust.
+                      Upon further inspection, you realize that this machine was
+                      intended to pass as a computer in some other dimension."
+                canBe="take, drop, use, examine"
+                canDo="take=>take, drop=>drop, examine=>examine"
+                usesDO="The terminal prints out one statement and one statement only.
+                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....
+                        |use|The walls of the lab are shaking from the wrath of the
+                        sysadmin gods.;"
+            >
+            </Item>
+            <Portal
+                name="crack in the wall"
+                desc="A crack running down the long purple wall of the laboratory."
+                canDo="enter=>Space"
+                canBe="open, close"
+            >
+            </Portal>
         </Location>
 </Game>

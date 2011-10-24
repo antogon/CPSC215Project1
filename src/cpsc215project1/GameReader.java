@@ -135,7 +135,7 @@ public class GameReader {
             ArrayList<String> b = new ArrayList<String>();
             String cB = curr.getAttributeValue("canBe");
             int startNDX;
-            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
+            for (startNDX = 0; cB!=null && cB.indexOf(',', startNDX) > 0;) {
                 b.add(cB.substring(startNDX, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
@@ -147,10 +147,11 @@ public class GameReader {
             }
             HashMap<String, String> d = new HashMap<String, String>();
             cB = curr.getAttributeValue("canDo");
-            for (startNDX = 0; cB.indexOf(',', startNDX) > 0;) {
+            for (startNDX = 0; cB!=null && cB.indexOf(',', startNDX) > 0;) {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
+
             startNDX = cB.lastIndexOf(',') + 2;
             d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
             cB = curr.getAttributeValue("aliases");
