@@ -95,11 +95,11 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                        even though you are floating in the void of space.  You are saddened
                         that these are the last sounds you will ever hear. The cat is close enough
                         for you to pet..."
-                uses="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!!11
-                |cat|Your ears are bleeding furiously from the repetitive song..."
                 canDo="examine=>examine, take=>take, pet=>use"
                 canBe="examine, take, use"
                 alisases="nyan, feline, annoying, fuck"
+                usesDO="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!111
+                |pet|The repetitive song is making your ears bleed...;"
             >
             </Item>
 
@@ -110,6 +110,18 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 canDo="examine=>examine, take=>take"
                 canBe="examine, take"
                 alisases="thoroughbred, equine, beast"
+                usesDO="It tastes just like raisins.
+                |lick|After you licked it, the horse began to drool disturbingly...;"
+            >
+            </Item>
+
+            <Item
+                name="phonebooth"
+                desc="The phone booth you stepped out of has floated beyond your reach.
+                      You wonder where it is going and why you left it in the first place..."
+                canDo="examine=>examine, take=>take"
+                canBe="examine, take"
+                alisases="booth, TARDIS"
             >
             </Item>
 
