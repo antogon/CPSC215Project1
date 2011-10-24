@@ -7,45 +7,203 @@ dirty for you to see outside."
 	>
 		<Item
 			name="phone"
-			desc="It has a slot for quarters"
-			canDo="break=>damage, examine=>examine"
+			desc="It has a slot for quarters and seems to just barely
+                               hang on the wall..."
+                        usesIO="You put a quarter into the coin slot and it starts ringing.
+                        This isn't how phones work but you figure you should answer it anyway.
+                        |quarter|The phone is now ringing;"
+                        usesDO="You answer the phone and a raspy voice on the other end says '
+                                Good luck escaping the phone booth.  A clue to help is right 
+                                under your nose! Mwuhahahhahaha!!' You find the riddle to be cheesy
+                                and the cliche laugh to be more than a little contrived, but you
+                                really should concentrate on escaping this glass prison.  Another
+                                look around probably wouldn't hurt anything...|answer|
+                                You notice a reflection in the glass;"
+			canDo="break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
 		>
 		</Item>
                 <Item
 			name="quarter"
-			desc="you feel sure you could get 25 pennies for this"
-			canDo="scratch=>damage, examine=>examine, take=>take, pick up=>take, drop=>drop"
+			desc="You feel sure you could get 25 pennies for this."
+			canDo="get=>take, examine=>examine, take=>take, drop=>drop"
 			canBe="answer, take, examine, use, drop"
+                        
                         aliases="coin"
 		>
 		</Item>
                 <Item
 			name="crowbar"
 			desc="A long, hard, steel rod of pain."
-			canDo="break=>damage, take=>take, drop=>drop"
-			canBe="take, drop"
+			canDo="break=>damage, take=>take, drop=>drop, use=>use"
+			canBe="take, drop, use"
                         aliases=""
                         visibility="false"
 		>
 		</Item>
+		<Item
+			name="reflection"
+			desc="You can barely make out the grimy reflection of your
+                               face in the dingy glass.  Still, you are awestruck by your
+                                overwhelming beauty."
+			canDo="break=>damage, visible=>crowbar, invisible=>reflection"
+			canBe="damage, fart"
+                        usesDO="You can barely make out the grimy reflection of your
+                               face in the dingy glass but you are still awestruck by your
+                                overwhelming beauty. Upon closer inspection you notice something
+                                under your nose.  You go to pick it and a crowbar falls out of
+                                your nose and hits the ground.|examine|Time to show that
+                                door who is boss!;"
+                        aliases="face"
+                        visibility="false"
+		>
+		</Item>
+
+                <Item
+                        name="picture"
+                        desc="A worn out picture of Gene Autry is hanging crooked on the wall.
+                              While the memories of the singing cowboy make you feel more than
+                              a little nostalgic, you should probably focus on getting out
+                              of this phone booth..."
+                        canDo="examine=>examine, damage=>damage, take=>take, get=>take"
+                        canBe="examine, damage, take"
+                        aliases="photo, gene, cowboy"
+                        visibility="true"
+                   >
+                   </Item>
+
+
 		<Portal
 			name="door"
-			desc="It's a glass sliding door that doesn't seem to
-want to open"
-			canDo="break=>open, open=>open, close=>close, enter=>Space, examine=>examine"
-			canBe="open, close, examine"
+			desc="It is an old sliding door and while it is quite
+                              ornate in design it appears to be jammed. However,
+                              its seems that you could easily force it open if you had the right tool..."
+			canDo="use=>open, close=>close, enter=>Space, examine=>examine"
+			canBe="open, close, use, examine"
+                        usesIO="You swing with all of the speed that a confined space will allow you
+                                and manage to lodge the crowbar into the crack in the door.  You pry
+                                at the door until it eventually pops open.|crowbar|The door is open.
+                                It looks like it leads into outer space!;"
                         aliases="door"
 		>
 		</Portal>
 	</Location>
+
 	<Location
 		name="Space"
 		desc="Upon opening the door your are sucked into outer space.  
-You have failed to pack a space suit and cannot breath.  However you are happy
-to have escaped the booth.  Good job!"
-	>
-		
+You have failed to pack a spacesuit and cannot breath.  Enjoy the last 14 to 15
+seconds of your life before you pass out and die.  The phonebooth has floated out of reach."
+        >
+            <Item
+                name="planet"
+                desc="What appears to be the planet Mars is floating peacefully and indifferently through the vast void of space."
+                canDo="examine=>examine, take=>take"
+                canBe="examine, take"
+                aliases="globe, sphere, mars"
+            >
+            </Item>
+
+
+            <Item
+                name="cat"
+                desc="The cat is surfing on a rainbow and flying across the sky at an amazing speed.
+                       Curiously, you can hear it singing an extremely annoying song,
+                       even though you are floating in the void of space.  You are saddened
+                        that these are the last sounds you will ever hear. You have an overwhelming
+                        desire to attempt to pet the cat as it passes by..."
+                canDo="examine=>examine, take=>take, pet=>use"
+                canBe="examine, take, use"
+                alisases="nyan, feline, annoying, fuck"
+                usesDO="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!111
+                |pet|The repetitive song is making your ears bleed...;"
+            >
+            </Item>
+
+                <Item
+			name="spacesuit"
+			desc="It appears to be an old soviet era spacesuit from the
+                               60's and is floating awkwardly nearby.  It seems
+                                to be in good condition, however, a hand sewn patch
+                                 on the leg gives you pause.
+                                 In a cruel twist of fate it is just beyond your reach."
+			canDo="break=>damage, examine=>examine"
+			canBe="damage, examine"
+                        aliases="suit, space suit"
+                        usesDO="You kick the hard metal helmet, stubbing your toe.
+                        |kick|The spacesuit has a broken windshield;"
+		>
+		</Item>
+
+            <Item
+                name="horse"
+                desc="To your left there is a horse who is grinning oddly.
+                      You find the horse to be amazing and you have an overwhelming desire to lick it."
+                canDo="examine=>examine, take=>take"
+                canBe="examine, take"
+                alisases="thoroughbred, equine, beast"
+                usesDO="It tastes just like raisins.
+                |lick|After you licked it, the horse began to drool disturbingly...;"
+            >
+            </Item>
+
+            <Item
+                name="phonebooth"
+                desc="The phone booth you stepped out of has floated beyond your reach.
+                      You wonder where it is going and why you left it in the first place..."
+                canDo="examine=>examine"
+                canBe="examine"
+                alisases="booth, TARDIS"
+            >
+            </Item>
+            <Portal
+                name="blackhole"
+                desc="A large black hole that appears to be sucking you
+                      slowly in its general direction."
+                canBe="open, close"
+                canDo="enter=>Lab, open=>open"
+                aliases="hole"
+            >
+            </Portal>
 	</Location>
+        <Location
+            name="Lab"
+            desc="You are surrounded by people typing away at terminals in the dim light.
+                    The walls appear to have a purple tinge and you cannot help but feel the urge to vomit.
+                    There is a smell lingering in one corner near a large, particularly hairy man."
+        >
+            <Person
+                name="man"
+                desc="A large man.  He appears to be covered from head to toe in hair and smells as
+                      if he has not bathed in decades.  Approaching him may very well be the last
+                      mistake you ever make."
+                usesDO="The man grunts in your direction and continues typing at his terminal.|talk|
+                        After you spoke to the man, the other people in the room appear to have a
+                        newfound respect for you.;"
+                canBe="examine"
+                canDo="examine=>examine"
+            >
+            </Person>
+            <Item
+                name="terminal"
+                desc="A rather ratty machine.  The front face is covered in dust.
+                      Upon further inspection, you realize that this machine was
+                      intended to pass as a computer in some other dimension."
+                canBe="take, drop, use, examine"
+                canDo="take=>take, drop=>drop, examine=>examine"
+                usesDO="The terminal prints out one statement and one statement only.
+                        /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....
+                        |use|The walls of the lab are shaking from the wrath of the
+                        sysadmin gods.;"
+            >
+            </Item>
+            <Portal
+                name="crack in the wall"
+                desc="A crack running down the long purple wall of the laboratory."
+                canDo="enter=>Space"
+                canBe="open, close"
+            >
+            </Portal>
+        </Location>
 </Game>
