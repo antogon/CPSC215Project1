@@ -37,6 +37,7 @@ public class Item extends Target {
             new DropStrategy().doCommand(c,e,w);
         }
         else if(canBe && key.equals("damage")){
+      
             new DamageStrategy().doCommand(c,e,w);
         }
         else{
