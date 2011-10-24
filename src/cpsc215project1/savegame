@@ -3,7 +3,7 @@
 		name="Phonebooth"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
 dirty for you to see outside."
-         
+                isInit = "Initial Location"
 	>
 		<Item
 			name="phone"
@@ -92,7 +92,6 @@ dirty for you to see outside."
 
 	<Location
 		name="Space"
-                       isInit = "Initial Location"
 		desc="Upon opening the door your are sucked into outer space.  
 You have failed to pack a spacesuit and cannot breath.  Enjoy the last 14 to 15
 seconds of your life before you pass out and die, unless of course
@@ -206,8 +205,6 @@ seconds of your life before you pass out and die, unless of course
                 canDo="examine=>examine"
             >
             </Person>
-            >
-            </Item>
             <Portal
                 name="crack in the wall"
                 desc="A crack running down the long purple wall of the laboratory."
