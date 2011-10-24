@@ -138,6 +138,21 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
                 alisases="booth, TARDIS"
             >
             </Item>
-
+            <Portal
+                name="blackhole"
+                desc="A large black hole that appears to be sucking you
+                      slowly in its general direction."
+                canBe="open, close"
+                canDo="enter=>Lab, open=>open"
+                aliases="hole"
+            >
+            </Portal>
 	</Location>
+        <Location
+            name="Lab"
+            desc="You are surrounded by people typing away at terminals in the dim light.
+                    The walls appear to have a purple tinge and you cannot help but feel the urge to vomit.
+                    There is a smell lingering in one corner near a large, particularly hairy man."
+        >
+        </Location>
 </Game>
