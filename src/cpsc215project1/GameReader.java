@@ -162,7 +162,7 @@ public class GameReader {
             if (startNDX == 0) {
                 ali.add(cB);
             }
-            Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
+            Person a = new Person(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
             cB = curr.getAttributeValue("visibility");
             if (cB != null && cB.equals("false")) {
                 a.setVisible(false);
@@ -229,7 +229,7 @@ public class GameReader {
             if (startNDX == 0) {
                 ali.add(cB);
             }
-            Item a = new Item(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
+            Portal a = new Portal(curr.getAttributeValue("name"), curr.getAttributeValue("desc"), b, d, ali);
             cB = curr.getAttributeValue("visibility");
             if (cB != null && cB.equals("false")) {
                 a.setVisible(false);
