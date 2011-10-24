@@ -60,7 +60,7 @@ dirty for you to see outside."
                 <Item
 			name="spacesuit"
 			desc="It appears to be an old soviet era spacesuit from the
-                               60's and is lying awkwarding in the corner.  It seems
+                               60's and is lying awkwardly in the corner.  It seems
                                 to be in good condition, however, a hand sewn patch
                                  on the leg gives you pause..."
 			canDo="break=>damage, examine=>examine, take=>take, grab=>take, drop=>drop"
@@ -74,9 +74,13 @@ dirty for you to see outside."
 		<Portal
 			name="door"
 			desc="It's a glass sliding door that doesn't seem to
-want to open."
+                              want to open."
 			canDo="break=>open, use=>open, open=>open, close=>close, enter=>Space, examine=>examine"
-			canBe="open, close, examine"
+			canBe="open, close, use, examine"
+                        usesIO="You swing with all of the speed that a confined space will allow you
+                                and manage to lodge the crowbar into the crack in the door.  You pry
+                                at the door until it eventually pops open.|crowbar|The door is open.
+                                It looks like it leads into outer space!;"
                         aliases="door"
 		>
 		</Portal>

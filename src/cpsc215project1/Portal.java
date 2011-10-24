@@ -37,8 +37,7 @@ public class Portal extends Target {
             w.println("The " + myName + " is now closed.");
             isOpen = false;
             this.updateDescription("The door is closed.");
-        }
-        else if(!myDirectObjectCommands.containsKey(c.getVerb())){
+        } else if (!myDirectObjectCommands.containsKey(c.getVerb())) {
             throw new DoNotUnderstandException(c);
         } else {
             for (Location l : ((Location) e.getPlayerLocation()).getWorld()) {
@@ -50,28 +49,35 @@ public class Portal extends Target {
                                 + " and fail dismally, hitting your head.");
                     }
                     break;
-                }  
+                }
             }
 
         }
     }
 
-    public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
-        if (c.getVerb().equals("use")
+    public void doCommandWith(
+            AdventureCommand c,
+            AdventureEngine e,
+            AdventureWindow w) throws DoNotUnderstandException {
+        if      (c.getVerb().equals("use")
                 && myIndirectObjectCommands.contains(c.getVerb())
-                && ((Item) c.getDirectObject()).getUsable()
+                && ((Target) c.getDirectObject()).getUsable()
                 && myUseListIO.containsKey(((Target) c.getDirectObject()).getName())) {
             String[] effects = myUseListIO.get(((Target) c.getDirectObject()).getName());
             w.println(effects[0]);
-            ((Item) c.getIndirectObject()).setUsable(true);
-            ((Item) c.getDirectObject()).setUsable(false);
+            ((Target) c.getIndirectObject()).setUsable(true);
+            ((Target) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
-            if(myDirectObjectCommands.containsKey("use"))
-            {
+            for (String s : myDirectObjectCommands.keySet()) {
+                System.out.println(s);
+                System.out.flush();
+            }
+            if (myDirectObjectCommands.containsKey("use")) {
+
                 String key = myDirectObjectCommands.get("use");
                 boolean canBe = myIndirectObjectCommands.contains(key);
-
+                System.out.println(key + ":" + canBe);
                 if (canBe && key.equals("examine")) {
                     new ExamineStrategy().doCommand(c, e, w);
                 } else if (canBe && key.equals("take")) {

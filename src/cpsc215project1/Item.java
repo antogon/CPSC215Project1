@@ -91,12 +91,12 @@ public class Item extends Target {
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
         if (c.getVerb().equals("use")
                 && myIndirectObjectCommands.contains(c.getVerb())
-                && ((Item) c.getDirectObject()).getUsable()
+                && ((Target) c.getDirectObject()).getUsable()
                 && myUseListIO.containsKey(((Target) c.getDirectObject()).getName())) {
             String[] effects = myUseListIO.get(((Target) c.getDirectObject()).getName());
             w.println(effects[0]);
-            ((Item) c.getIndirectObject()).setUsable(true);
-            ((Item) c.getDirectObject()).setUsable(false);
+            ((Target) c.getIndirectObject()).setUsable(true);
+            ((Target) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
             if(myDirectObjectCommands.containsKey("use"))
