@@ -73,8 +73,8 @@ seconds of your life before you pass out and die.  Good job!"
             <Item
                 name="planet"
                 desc="What appears to be the planet Mars is floating peacefully and indifferently through the vast void of space."
-                canDo="examine=>examine"
-                canBe="examine"
+                canDo="examine=>examine, take=>take"
+                canBe="examine, take"
                 aliases="globe, sphere, mars"
             >
             </Item>
