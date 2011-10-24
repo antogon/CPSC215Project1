@@ -9,7 +9,7 @@ dirty for you to see outside."
 			name="phone"
 			desc="It has a slot for quarters and seems to just barely
                                hang on the wall..."
-                        uses="You put a quarter into the coin slot and it starts ringing.
+                        usesIO="You put a quarter into the coin slot and it starts ringing.
                         This isn't how phones work but you figure you should answer it anyway.
                         |quarter|The phone is now ringing;"
 			canDo="break=>damage, examine=>examine, damage=>damage"
@@ -56,6 +56,8 @@ dirty for you to see outside."
 			canDo="break=>damage, examine=>examine, take=>take, grab=>take, drop=>drop"
 			canBe="damage, examine, take, drop"
                         aliases="suit, space suit"
+                        usesDO="You kick the hard metal helmet, stubbing your toe.
+                        |kick|The spacesuit has a broken windshield;"
 		>
 		</Item>
 

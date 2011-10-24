@@ -63,6 +63,12 @@ public class Item extends Target {
         else if(canBe && key.equals("damage")){
             new DamageStrategy().doCommand(c,e,w);
         }
+        else if(myUseListDO.containsKey(c.getVerb()))
+        {
+            String[] effects = myUseListDO.get(c.getVerb());
+            w.println(effects[0]);
+            ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
+        }
         else{
             throw new DoNotUnderstandException(c);
         }
@@ -72,9 +78,9 @@ public class Item extends Target {
         if(c.getVerb().equals("use")
                 && myIndirectObjectCommands.contains(c.getVerb())
                 && ((Item) c.getDirectObject()).getUsable()
-                && myUseList.containsKey(((Target)c.getDirectObject()).getName()))
+                && myUseListIO.containsKey(((Target)c.getDirectObject()).getName()))
         {
-            String[] effects = myUseList.get(((Target)c.getDirectObject()).getName());
+            String[] effects = myUseListIO.get(((Target)c.getDirectObject()).getName());
             w.println(effects[0]);
             ((Item) c.getIndirectObject()).setUsable(true);
             ((Item) c.getDirectObject()).setUsable(false);
