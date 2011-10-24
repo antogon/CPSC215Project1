@@ -12,6 +12,11 @@ dirty for you to see outside."
                         usesIO="You put a quarter into the coin slot and it starts ringing.
                         This isn't how phones work but you figure you should answer it anyway.
                         |quarter|The phone is now ringing;"
+                        usesDO="You answer the phone and a voice on the other end says '
+                                Good luck escaping the phone booth.  A clue to help is right 
+                                under your nose!' You find the riddle to be cheesy but you
+                                really should concentrate on escaping this glass box.|answer|
+                                You notice a reflection in the glass;"
 			canDo="break=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
@@ -39,10 +44,15 @@ dirty for you to see outside."
 			name="reflection"
 			desc="You can barely make out the grimy reflection of your
                                face in the dingy glass.  Still, you are awestruck by your
-                                overwhelming beauty. Upon closer inspection,
-                                you notice that something is protruding from your nose..."
-			canDo="break=>damage, examine=>examine, visible=>crowbar, invisible=>reflection"
-			canBe="damage, examine"
+                                overwhelming beauty."
+			canDo="break=>damage, visible=>crowbar, invisible=>reflection"
+			canBe="damage, fart"
+                        usesDO="You can barely make out the grimy reflection of your
+                               face in the dingy glass.  Still, you are awestruck by your
+                                overwhelming beauty. Upon closer inspection you notice something
+                                under your nose.  You go to pick it and a crowbar fall out from
+                                under your nose and hits the ground.|examine|Time to show that
+                                door who is boss!;"
                         aliases="face"
                         visibility="false"
 		>
