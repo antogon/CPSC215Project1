@@ -79,6 +79,10 @@ public abstract class Target implements AdventureTarget {
         return "a " + myName;
     }
 
+    public String getName(){
+        return myName;
+    }
+
     /**
      * Returns the <code>Target</code>'s description.
      * @return the description of the object as supplied in the constructor as
@@ -152,7 +156,7 @@ public abstract class Target implements AdventureTarget {
         myUseListDO.put(key, v);
     }
 
-    public String getName() {
+    public String getTargetName() {
         return myName;
     }
 }

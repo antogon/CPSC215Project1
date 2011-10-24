@@ -25,7 +25,7 @@ public class LookStrategy implements VerbStrategy {
                 visibleItems.add((AdventureTarget) t);
             }
         }
-
+        
         size = visibleItems.size();
 
         for (AdventureTarget t : visibleItems) {
@@ -49,5 +49,6 @@ public class LookStrategy implements VerbStrategy {
 
         }
         w.println(output);
+
     }
 }

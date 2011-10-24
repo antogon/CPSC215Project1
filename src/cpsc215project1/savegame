@@ -17,7 +17,7 @@ dirty for you to see outside."
                                 under your nose!' You find the riddle to be cheesy but you
                                 really should concentrate on escaping this glass box.|answer|
                                 You notice a reflection in the glass;"
-			canDo="break=>damage, examine=>examine, damage=>damage, visible=>reflection"
+			canDo="break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
 		>
@@ -34,8 +34,8 @@ dirty for you to see outside."
                 <Item
 			name="crowbar"
 			desc="A long, hard, steel rod of pain."
-			canDo="break=>damage, take=>take, drop=>drop"
-			canBe="take, drop"
+			canDo="break=>damage, take=>take, drop=>drop, use=>use"
+			canBe="take, drop, use"
                         aliases=""
                         visibility="false"
 		>
@@ -101,24 +101,41 @@ seconds of your life before you pass out and die.  The phonebooth has floated ou
             >
             </Item>
 
+
             <Item
                 name="cat"
                 desc="The cat is surfing on a rainbow and flying across the sky at an amazing speed.
                        Curiously, you can hear it singing an extremely annoying song,
                        even though you are floating in the void of space.  You are saddened
-                        that these are the last sounds you will ever hear."
-                canDo="examine=>examine, take=>take"
-                canBe="examine, take"
+                        that these are the last sounds you will ever hear. The cat is close enough
+                        for you to pet..."
+                canDo="examine=>examine, take=>take, pet=>use"
+                canBe="examine, take, use"
                 alisases="nyan, feline, annoying, fuck"
+                usesDO="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!111
+                |pet|The repetitive song is making your ears bleed...;"
             >
             </Item>
 
             <Item
                 name="horse"
-                desc="You find the horse to be amazing and you have an overwhelming desire to lick it."
+                desc="To your left there is a horse who is grinning oddly.
+                      You find the horse to be amazing and you have an overwhelming desire to lick it."
                 canDo="examine=>examine, take=>take"
                 canBe="examine, take"
                 alisases="thoroughbred, equine, beast"
+                usesDO="It tastes just like raisins.
+                |lick|After you licked it, the horse began to drool disturbingly...;"
+            >
+            </Item>
+
+            <Item
+                name="phonebooth"
+                desc="The phone booth you stepped out of has floated beyond your reach.
+                      You wonder where it is going and why you left it in the first place..."
+                canDo="examine=>examine, take=>take"
+                canBe="examine, take"
+                alisases="booth, TARDIS"
             >
             </Item>
 
