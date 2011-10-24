@@ -109,7 +109,7 @@ public class GameReader
                         {
                             a.setVisible(false);
                         }
-                        cB = curr.getAttributeValue("uses");
+                        cB = curr.getAttributeValue("usesIO");
                         //uses must be as: [message one]|[object]|[scene effect];
                         for(startNDX = 0; cB!=null && cB.indexOf(';', startNDX)>0; startNDX=startNDX)
                         {
@@ -120,7 +120,20 @@ public class GameReader
                             startNDX = cB.indexOf("|",startNDX)+1;
                             val[1] = cB.substring(startNDX,cB.indexOf(";", startNDX));
                             startNDX = cB.indexOf(";",startNDX)+2;
-                            a.addUse(key, val);
+                            a.addUseIO(key, val);
+			}
+                        cB = curr.getAttributeValue("usesDO");
+                        //uses must be as: [message one]|[object]|[scene effect];
+                        for(startNDX = 0; cB!=null && cB.indexOf(';', startNDX)>0; startNDX=startNDX)
+                        {
+                            String[] val = new String[2];
+                            val[0] = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            String key = cB.substring(startNDX,cB.indexOf("|", startNDX));
+                            startNDX = cB.indexOf("|",startNDX)+1;
+                            val[1] = cB.substring(startNDX,cB.indexOf(";", startNDX));
+                            startNDX = cB.indexOf(";",startNDX)+2;
+                            a.addUseDO(key, val);
 			}
 			String pa = p.getAttributeValue("name");
 			for(Location l : myWorld)
