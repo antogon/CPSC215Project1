@@ -95,22 +95,42 @@ public class Location implements AdventureLocation {
         return myUpdatedDescription;
     }
 
+    /**
+     * <p>Appends the original description with the string that is passed in
+     * through the method's arguments.  The new part of the description is added
+     * to a new line of the description.</p>
+     *
+     * @param iDiscription The description to be added to the original description.
+     */
     public void updateDescription(String iDiscription) {
         myUpdatedDescription = myDescription + "\n" + iDiscription;
     }
-
+    /**
+     * <p>Returns a list of the local targets in a given
+     * <code>Location</code>.
+     * @return A set of local targets in the <code>Location</code>.
+     */
     public Set<AdventureTarget> getLocalTargets() {
         return myLocalTargets;
     }
-
+    /**
+     * <p>Removes a specified target from the list of local targets.</p>
+     * @param t The <code>Target</code> to be removed.
+     */
     public void removeLocalTarget(AdventureTarget t) {
         myLocalTargets.remove(t);
     }
-
+    /**
+     * <p>Returns the name of the <code>Location</code>.</p>
+     * @return The name of the <code>Location</code>
+     */
     public String getName() {
         return myName;
     }
-
+    /**
+     * <p>Returns a clone of the world.</p>
+     * @return The clone of the world.
+     */
     public ArrayList<Location> getWorld() {
         return (ArrayList<Location>) (myWorld.clone());
     }
