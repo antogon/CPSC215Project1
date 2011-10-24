@@ -57,7 +57,8 @@ public class Item extends Target {
             new DropStrategy().doCommand(c, e, w);
         } else if (canBe && key.equals("damage")) {
             new DamageStrategy().doCommand(c, e, w);
-        } else if (myUseListDO.containsKey(c.getVerb())) {
+        } else if (myUseListDO.containsKey(c.getVerb())
+                && ((Target)c.getDirectObject()).getVisible()) {
             String[] effects = myUseListDO.get(c.getVerb());
             w.println(effects[0]);
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);

@@ -22,10 +22,45 @@ public class Person extends Target {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException {
-        String key = myDirectObjectCommands.get(c.getVerb());
+                String key = myDirectObjectCommands.get(c.getVerb());
         boolean canBe = myIndirectObjectCommands.contains(key);
+
         if (canBe && key.equals("examine")) {
             new ExamineStrategy().doCommand(c, e, w);
+        } else if (canBe && key.equals("take")) {
+            new TakeStrategy().doCommand(c, e, w);
+        } else if (canBe && key.equals("drop")) {
+            new DropStrategy().doCommand(c, e, w);
+        } else if (canBe && key.equals("damage")) {
+            new DamageStrategy().doCommand(c, e, w);
+        } else if (myUseListDO.containsKey(c.getVerb())) {
+            String[] effects = myUseListDO.get(c.getVerb());
+            w.println(effects[0]);
+            ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
+            if(myDirectObjectCommands.containsKey("visible"))
+            {
+                String objName = myDirectObjectCommands.get("visible");
+                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
+                {
+                    if(t.canBeReferredToAs(objName))
+                    {
+                        ((Target)t).setVisible(!((Target)t).getVisible());
+                    }
+                }
+            }
+            if(myDirectObjectCommands.containsKey("invisible"))
+            {
+                String objName = myDirectObjectCommands.get("invisible");
+                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
+                {
+                    if(t.canBeReferredToAs(objName))
+                    {
+                        ((Target)t).setVisible(false);
+                    }
+                }
+            }
+        } else {
+            throw new DoNotUnderstandException(c);
         }
     }
 
@@ -39,7 +74,7 @@ public class Person extends Target {
                 && myUseListIO.containsKey(
                 ((Target) c.getDirectObject()).getName())) {
             String[] effects = myUseListIO.get(
-                    ((Target) c.getDirectObject()).getName());
+                ((Target) c.getDirectObject()).getName());
             w.println(effects[0]);
             ((Target) c.getIndirectObject()).setUsable(true);
             ((Target) c.getDirectObject()).setUsable(false);

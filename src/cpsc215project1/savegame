@@ -50,8 +50,8 @@ dirty for you to see outside."
                         usesDO="You can barely make out the grimy reflection of your
                                face in the dingy glass.  Still, you are awestruck by your
                                 overwhelming beauty. Upon closer inspection you notice something
-                                under your nose.  You go to pick it and a crowbar fall out from
-                                under your nose and hits the ground.|examine|Time to show that
+                                under your nose.  You go to pick it and a crowbar falls out of
+                                your nose and hits the ground.|examine|Time to show that
                                 door who is boss!;"
                         aliases="face"
                         visibility="false"
@@ -63,7 +63,7 @@ dirty for you to see outside."
                                60's and is lying awkwardly in the corner.  It seems
                                 to be in good condition, however, a hand sewn patch
                                  on the leg gives you pause..."
-			canDo="break=>damage, examine=>examine, take=>take, grab=>take, drop=>drop"
+			canDo="break=>damage, examine=>examine, get=>take, take=>take, grab=>take, drop=>drop"
 			canBe="damage, examine, take, drop"
                         aliases="suit, space suit"
                         usesDO="You kick the hard metal helmet, stubbing your toe.

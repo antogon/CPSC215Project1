@@ -5,6 +5,7 @@ import edu.clemson.cs.hamptos.adventure.AdventureEngine;
 import edu.clemson.cs.hamptos.adventure.AdventureTarget;
 import edu.clemson.cs.hamptos.adventure.AdventureWindow;
 import edu.clemson.cs.hamptos.adventure.VerbStrategy;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +14,13 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
 public class ExamineStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-
-        for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
-            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription())) {
+        
+        ArrayList<AdventureTarget> listy = new ArrayList<AdventureTarget>();
+        listy.addAll(e.getPlayerLocation().getLocalTargets());
+        listy.addAll(e.getPlayerInventory());
+        
+        for (AdventureTarget t : listy) {
+            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription()) && ((Target)t).getVisible())  {
                 w.println(c.getDirectObject().getDescription());
             }
         }
