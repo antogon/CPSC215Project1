@@ -84,8 +84,13 @@ public class GameReader {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            startNDX = cB.lastIndexOf(',') + 2;
-            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            if(startNDX==0)
+            {
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            }
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
             for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
@@ -151,9 +156,13 @@ public class GameReader {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-
-            startNDX = cB.lastIndexOf(',') + 2;
-            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            if(startNDX==0)
+            {
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            }
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
             for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
@@ -219,8 +228,13 @@ public class GameReader {
                 d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.indexOf(',', startNDX)));
                 startNDX = cB.indexOf(',', startNDX) + 2;
             }
-            startNDX = cB.lastIndexOf(',') + 2;
-            d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            if(startNDX==0)
+            {
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            } else {
+                startNDX = cB.lastIndexOf(',') + 2;
+                d.put(cB.substring(startNDX, cB.indexOf('=', startNDX)), cB.substring(cB.indexOf('=', startNDX) + 2, cB.length()));
+            }
             cB = curr.getAttributeValue("aliases");
             ArrayList<String> ali = new ArrayList<String>();
             for (startNDX = 0; cB != null && cB.indexOf(',', startNDX) > 0;) {
