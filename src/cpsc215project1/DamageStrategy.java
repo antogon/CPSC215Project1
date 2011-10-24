@@ -10,17 +10,15 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *
  * @author toiletplumber
  */
-public class DamageStrategy implements VerbStrategy{
+public class DamageStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
-        
-        for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
-        {
-            if(t.getShortDescription().equals(c.getDirectObject().getShortDescription())){
-                ((Target)t).updateDescription("It appears to be damaged.");
-                ((Target)t).setUsable(false);
-            } 
+
+        for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription())) {
+                ((Target) t).updateDescription("It appears to be damaged.");
+                ((Target) t).setUsable(false);
+            }
         }
     }
-    
 }

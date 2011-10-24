@@ -29,31 +29,22 @@ public class Portal extends Target {
 
         if (canBe && key.equals("examine")) {
             new ExamineStrategy().doCommand(c, e, w);
-        }
-
-        else if (canBe && key.equals("open"))
-        {
+        } else if (canBe && key.equals("open")) {
             w.println("The " + myName + " is now open.");
             isOpen = true;
             this.updateDescription("The door is open.");
-        }
-
-        else if (canBe && key.equals("close")) {
+        } else if (canBe && key.equals("close")) {
             w.println("The " + myName + " is now closed.");
             isOpen = false;
             this.updateDescription("The door is closed.");
-        }
-
-        else if (!myDirectObjectCommands.containsKey(c.getVerb())){
+        } else if (!myDirectObjectCommands.containsKey(c.getVerb())) {
             throw new DoNotUnderstandException(c);
-        }
-
-        else {
+        } else {
             for (Location l : ((Location) e.getPlayerLocation()).getWorld()) {
                 if (l.getName().equals(key)) {
                     if (isOpen) {
                         e.setPlayerLocation(l);
-                    } else if (!isOpen){
+                    } else if (!isOpen) {
                         w.println("The " + myName + " is closed.  You try to enter it"
                                 + " and fail dismally, hitting your head.");
                     }

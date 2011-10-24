@@ -18,10 +18,10 @@ public class DropStrategy implements VerbStrategy {
             if (((Target) t).getVisible()) {
                 if (t == c.getDirectObject()) {
                     out = t;
-                    
+
                 }
             }
-            
+
         }
         e.removeFromPlayerInventory(out);
         ((Item) out).setUsable(false);
