@@ -21,8 +21,9 @@ public abstract class Target implements AdventureTarget {
 	protected HashMap<String, String> myDirectObjectCommands;
 		// things you can do TO the Target instance
 	protected ArrayList<String> myAliases;
+        		// list of words that could also refer to this instance
         protected String myUpdatedDescription;
-		// list of words that could also refer to this instance
+
         protected boolean isUsable = true;
         protected boolean isVisible = true;
 
@@ -116,12 +117,14 @@ public abstract class Target implements AdventureTarget {
 		if(!myIndirectObjectCommands.contains(c.getVerb()) )
 			throw new DoNotUnderstandException(c);
 
-
-
 	}
 */
         public void updateDescription(String iDiscription) {
-        myUpdatedDescription = myDesc + "\n" + iDiscription;
+            myUpdatedDescription = iDiscription;
+        }
+
+        public void appendDescription(String iDescription){
+            myUpdatedDescription = myDesc +"\n" + iDescription;
         }
 
         public void setUsable(boolean a)
