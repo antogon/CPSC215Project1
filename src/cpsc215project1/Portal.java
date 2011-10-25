@@ -60,7 +60,6 @@ public class Portal extends Target {
 
         }
     }
-
     public void doCommandWith(
             AdventureCommand c,
             AdventureEngine e,
@@ -75,15 +74,9 @@ public class Portal extends Target {
             ((Target) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
-            for (String s : myDirectObjectCommands.keySet()) {
-                System.out.println(s);
-                System.out.flush();
-            }
             if (myDirectObjectCommands.containsKey("use")) {
-
                 String key = myDirectObjectCommands.get("use");
                 boolean canBe = myIndirectObjectCommands.contains(key);
-                System.out.println(key + ":" + canBe);
                 if (canBe && key.equals("examine")) {
                     new ExamineStrategy().doCommand(c, e, w);
                 } else if (canBe && key.equals("take")) {
