@@ -127,7 +127,8 @@ seconds of your life before you pass out and die, unless of course
                                60's and is floating awkwardly nearby.  It seems
                                 to be in good condition, however, a hand sewn patch
                                  on the leg gives you pause.
-                                 In a cruel twist of fate it is just beyond your reach."
+                                 In a cruel twist of fate it is just beyond your reach of your hand,
+                                    but you may be able to kick it to show it who is boss."
 			canDo="look=>examine, break=>damage, examine=>examine"
 			canBe="damage, examine"
                         aliases="suit, space suit"
