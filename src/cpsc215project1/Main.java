@@ -1,7 +1,7 @@
 package cpsc215project1;
 
 /**
- *
+ * The main driver for the game, from which all awesomeness spawns.
  * @author ApertureScience
  */
 import edu.clemson.cs.hamptos.adventure.*;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Main {
 
 /**
- * The main function, which asks the player for a gamefile to load (giving the
+ * The main, which asks the player for a gamefile to load (giving the
  * option for a default savegame.)
  */
 public static void main(String[] args) {
