@@ -34,6 +34,8 @@ public class Person extends Target {
             new TakeStrategy().doCommand(c, e, w);
         } else if (canBe && key.equals("drop")) {
             new DropStrategy().doCommand(c, e, w);
+        } else if (canBe && key.equals("death")) {
+            new DeathStrategy().doCommand(c, e, w);
         } else if (canBe && key.equals("damage")) {
             new DamageStrategy().doCommand(c, e, w);
         } else if (myUseListDO.containsKey(c.getVerb())) {

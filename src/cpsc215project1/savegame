@@ -3,7 +3,7 @@
 		name="Phonebooth"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
                       dirty for you to see outside."
-            isInit = "Initial Location"
+                isInit="This string is now non-null.  This is now the initial location."
 	>
 		<Item
 			name="phone"
@@ -196,11 +196,11 @@ seconds of your life before you pass out and die, unless of course
                 desc="A large man.  He appears to be covered from head to toe in hair and smells as
                       if he has not bathed in decades.  Talking to him may very well be the last
                       mistake you ever make."
-                usesDO="The man grunts in your direction and continues typing at his terminal.|talk|
-                        After you spoke to the man, the other people in the room appear to have a
+                usesDO="The man grunts in your direction and continues typing at his terminal.|look|
+                        After you looked at the man, the other people in the room appear to have a
                         newfound respect for you.;"
-                canBe="examine, damage"
-                canDo="look=>examine, examine=>examine, damage=>damage"
+                canBe="examine, damage, death"
+                canDo="examine=>examine, damage=>damage, talk=>death"
             >
             </Person>
             <Portal
