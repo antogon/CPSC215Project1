@@ -10,7 +10,7 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  * <p><code>InventoryStrategy</code> is an implementation of the <code>VerbStrategy</code>
  *      interface.</p>
  */
-public class InventoryStrategy implements VerbStrategy{
+public class InventoryStrategy implements VerbStrategy {
 
     /**
      * <p>The <code>doCommand()</code> method handles calls, which are put forth
@@ -28,8 +28,8 @@ public class InventoryStrategy implements VerbStrategy{
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         w.println("Player Inventory");
         w.println("******************************");
-        
-        for(AdventureTarget t : e.getPlayerInventory()){
+
+        for (AdventureTarget t : e.getPlayerInventory()) {
             w.println(t.getShortDescription());
         }
     }

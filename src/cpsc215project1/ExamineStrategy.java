@@ -32,9 +32,9 @@ public class ExamineStrategy implements VerbStrategy {
         ArrayList<AdventureTarget> listy = new ArrayList<AdventureTarget>();
         listy.addAll(e.getPlayerLocation().getLocalTargets());
         listy.addAll(e.getPlayerInventory());
-
+        
         for (AdventureTarget t : listy) {
-            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription()) && ((Target) t).getVisible()) {
+            if (t.getShortDescription().equals(c.getDirectObject().getShortDescription()) && ((Target)t).getVisible())  {
                 w.println(c.getDirectObject().getDescription());
             }
         }

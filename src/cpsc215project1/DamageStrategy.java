@@ -11,7 +11,7 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  *      interface.</p>
  */
 public class DamageStrategy implements VerbStrategy {
-    
+
     /**
      * <p>The <code>doCommand()</code> method handles calls, which are put forth
      *      when a caller wishes to damage an {@link Item}. The {@link Item} 
@@ -30,7 +30,8 @@ public class DamageStrategy implements VerbStrategy {
 
         for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
             if (t.getShortDescription().equals(c.getDirectObject().getShortDescription())) {
-                w.println("You hit the " +((Target) t).getTargetName() + ".");
+                w.println("You hit the " +((Target) t).getName() + ".");
+
                 ((Target) t).appendDescription("It appears to be damaged.");
                 ((Target) t).setUsable(false);
             }

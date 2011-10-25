@@ -11,7 +11,6 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
  * <p><code>TakeStrategy</code> is an implementation of the <code>VerbStrategy</code>
  *      interface.</p>
  */
-
 public class TakeStrategy implements VerbStrategy {
 
     /**
@@ -36,8 +35,6 @@ public class TakeStrategy implements VerbStrategy {
             if (((Target) t).getVisible()) {
                 if (t == c.getDirectObject()) {
                     out = t;
-                    
-                    
                 }
             }
         }
