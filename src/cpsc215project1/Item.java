@@ -54,29 +54,23 @@ public class Item extends Target {
         } else if (canBe && key.equals("damage")) {
             new DamageStrategy().doCommand(c, e, w);
         } else if (myUseListDO.containsKey(c.getVerb())
-                && ((Target)c.getDirectObject()).getVisible()) {
+                && ((Target) c.getDirectObject()).getVisible()) {
             String[] effects = myUseListDO.get(c.getVerb());
             w.println(effects[0]);
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
-            if(myDirectObjectCommands.containsKey("visible"))
-            {
+            if (myDirectObjectCommands.containsKey("visible")) {
                 String objName = myDirectObjectCommands.get("visible");
-                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
-                {
-                    if(t.canBeReferredToAs(objName))
-                    {
-                        ((Target)t).setVisible(!((Target)t).getVisible());
+                for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+                    if (t.canBeReferredToAs(objName)) {
+                        ((Target) t).setVisible(!((Target) t).getVisible());
                     }
                 }
             }
-            if(myDirectObjectCommands.containsKey("invisible"))
-            {
+            if (myDirectObjectCommands.containsKey("invisible")) {
                 String objName = myDirectObjectCommands.get("invisible");
-                for(AdventureTarget t : e.getPlayerLocation().getLocalTargets())
-                {
-                    if(t.canBeReferredToAs(objName))
-                    {
-                        ((Target)t).setVisible(false);
+                for (AdventureTarget t : e.getPlayerLocation().getLocalTargets()) {
+                    if (t.canBeReferredToAs(objName)) {
+                        ((Target) t).setVisible(false);
                     }
                 }
             }
@@ -86,8 +80,9 @@ public class Item extends Target {
     }
 
     public void doCommandWith(AdventureCommand c, AdventureEngine e, AdventureWindow w) throws DoNotUnderstandException {
-        if (c.getVerb().equals("use")
-                && myIndirectObjectCommands.contains(c.getVerb())
+        String key = myDirectObjectCommands.get(c.getVerb());
+        if (key != null && key.equals("use")
+                && myIndirectObjectCommands.contains(key)
                 && ((Target) c.getDirectObject()).getUsable()
                 && myUseListIO.containsKey(((Target) c.getDirectObject()).getName())) {
             String[] effects = myUseListIO.get(((Target) c.getDirectObject()).getName());
@@ -96,9 +91,7 @@ public class Item extends Target {
             ((Target) c.getDirectObject()).setUsable(false);
             e.removeFromPlayerInventory(c.getDirectObject());
             ((Location) e.getPlayerLocation()).updateDescription(effects[1]);
-            if(myDirectObjectCommands.containsKey("use"))
-            {
-                String key = myDirectObjectCommands.get("use");
+            if (myDirectObjectCommands.containsKey("use")) {
                 boolean canBe = myIndirectObjectCommands.contains(key);
 
                 if (canBe && key.equals("examine")) {

@@ -80,6 +80,12 @@ public class Location implements AdventureLocation {
             new LookStrategy().doCommand(c, e, w);
         } else if (c.getVerb().equals("inventory")) {
             new InventoryStrategy().doCommand(c, e, w);
+        } else if (c.getVerb().equals("ls")) {
+            new LookStrategy().doCommand(c, e, w);
+        } else if (c.getVerb().equals("lose")) {
+            new DeathStrategy().doCommand(c, e, w);
+        } else if (c.getVerb().equals("die")) {
+            new DeathStrategy().doCommand(c, e, w);
         } else {
             throw new DoNotUnderstandException(c);
         }
