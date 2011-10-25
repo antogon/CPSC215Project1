@@ -31,43 +31,44 @@ public class GameReader {
      *      <code>desc</code> (a long description of the location), and a possible <code>isInit</code>.  As long as
      *      <code>isInit</code> is defined, that <code>Location</code> will be
      *      the initial location of the player when the game is started.<br/><br/>
+     *		</p><p>
      *
-     *      Within a <code>Location</code> tag, there are <code>Item</code>,
+	 *		Within a <code>Location</code> tag, there are <code>Item</code>,
      *      <code>Person</code>, and <code>Portal</code> tags, each representing
      *      their respective objects in the game.  All of the aforementioned tags
-     *      must include the following tags with proper syntax:<br/><br/>
-     *
-     *      &nbsp;&nbsp;<code>name</code> - a one word name for the object.<br/><br/>
-     *      &nbsp;&nbsp;<code>desc</code> - a long description for the object.<br/><br/>
-     *      &nbsp;&nbsp;<code>canBe</code> - a comma delimited list of strategies applicable to the object.<br/>
-     *      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>canBe="examine, drop, take"</code><br/><br/>
-     *      &nbsp;&nbsp;<code>canDo</code> - a mapping of verbs to strategies applicable in an indirect object context.<br/>
-     *      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>canDo="examine=>examine, kick=>drop, drop=>drop"</code><br/><br/>
-     *      &nbsp;&nbsp;<code>aliases</code> - a comma delimited list of other possible names for the object.<br/><br/><br/>
-     *
-     *      Each object may also define the following tags as needed for more complex game logic:<br/><br/>
-     *
-     *      &nbsp;&nbsp;<code>usesIO</code> - logic for an indirect object usage of the object.<br/>
-     *      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>usesIO="This message will be printed on the screen when the
+     *      must include the following tags with proper syntax:
+     *		<ul>
+     *      <li><code>name</code> - a one word name for the object.</li>
+     *      <li><code>desc</code> - a long description for the object.</li>
+     *      <li><code>canBe</code> - a comma delimited list of strategies applicable to the object.
+     *			<ul><li><code>canBe="examine, drop, take"</code></li></ul></li>
+     *      <li><code>canDo</code> - a mapping of verbs to strategies applicable in an indirect object context.
+     *      <ul><li><code>canDo="examine=>examine, kick=>drop, drop=>drop"</code></li></ul></li>
+     *      <li><code>aliases</code> - a comma delimited list of other possible names for the object.</li>
+	 *		</ul>
+     *		</p>
+     *      Each object may also define the following tags as needed for more complex game logic:</li>
+     *		<ul>
+     *      <li><code>usesIO</code> - logic for an indirect object usage of the object.
+     *      <ul><li><code>usesIO="This message will be printed on the screen when the
      *                      object is used.|OBJECTNAME|This message is appended to the
-     *                      Location's description."</code><br/><br/>
-     *      &nbsp;&nbsp;<code>usesDO</code> - logic for a direct object usage of the object.<br/>
-     *      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>usesDO="This message will be printed on the screen when the
-     *                      object is used.|TRIGGERVERB|This message is appended to the
-     *                      Location's description."</code><br/>
+     *                      Location's description."</code></li></ul></li>
+     *      <li><code>usesDO</code> - logic for a direct object usage of the object.
+     *      <ul><li><code>usesDO="This message will be printed on the screen when the
+     *               object is used.|TRIGGERVERB|This message is appended to the
+     *               Location's description."</code></li></ul></li>
      * </p>
-     * @param filePath the path to the XML game file
+     * @param inFile the {@link File} object of the XML file to be parsed.
+	 * @throws FileNotFoundException when the inFile argument is invalid.
      */
-    public GameReader(String filePath) {
+    public GameReader(File inFile) throws FileNotFoundException{
         try {
-            myGame = new File(filePath);
-            myBuilder = new Builder();
+			myGame = inFile;
+			myBuilder = new Builder();
             myDocument = myBuilder.build(myGame);
             myCurrentElement = myDocument.getRootElement();
             myWorld = new ArrayList<Location>();
             buildGame(myCurrentElement, null);
-        } catch (FileNotFoundException e) {
-            System.err.println("The file requested was not found.");
         } catch (ParsingException e) {
             System.err.println("The file was not parsed correctly.");
         } catch (IOException e) {
