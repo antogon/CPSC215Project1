@@ -98,6 +98,7 @@ public class GameReader {
             Location a = new Location(
                     curr.getAttributeValue("name"),
                     curr.getAttributeValue("desc"), myWorld);
+
             if (curr.getAttributeValue("isInit") != null) {
                 myLocation = a;
             }
@@ -153,10 +154,11 @@ public class GameReader {
             if (startNDX == 0) {
                 ali.add(cB);
             }
-            Item a = new Item(
+                Item a = new Item(
                     curr.getAttributeValue("name"),
                     curr.getAttributeValue("desc"),
                     b, d, ali);
+
             cB = curr.getAttributeValue("visibility");
             if (cB != null && cB.equals("false")) {
                 a.setVisible(false);

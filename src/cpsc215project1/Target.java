@@ -113,6 +113,7 @@ public abstract class Target implements AdventureTarget {
      * change the location).
      * @param aliases list of words that could refer to this {@code Target}
      * instance. {@code name} needs not be included in this list.
+>>>>>>> 325af1196254a52899481e026cf0d2f6c7d0065a
      */
     public Target(String name, String desc, ArrayList<String> indirectObjCmds,
             HashMap<String, String> directObjCmds, ArrayList<String> aliases) {
@@ -148,6 +149,7 @@ public abstract class Target implements AdventureTarget {
      *
      * @return The target's short description.
      */
+
     public String getShortDescription() {
         return "a " + myName;
     }
@@ -196,7 +198,7 @@ public abstract class Target implements AdventureTarget {
             AdventureCommand c,
             AdventureEngine e,
             AdventureWindow w) throws DoNotUnderstandException;
-
+    
     /**
      * <p>Requests that this target attempt to process the given command as the
      * indirect object of the command.  So, if the command given were
@@ -260,6 +262,7 @@ public abstract class Target implements AdventureTarget {
 	 * @return {@code true} if the {@code Target} is flagged as
 	 * usable.
 	 */
+
     public boolean getUsable() {
         return isUsable;
     }
@@ -320,3 +323,4 @@ public abstract class Target implements AdventureTarget {
 
 
 }
+

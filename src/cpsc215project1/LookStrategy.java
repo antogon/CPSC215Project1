@@ -8,11 +8,26 @@ import edu.clemson.cs.hamptos.adventure.VerbStrategy;
 import java.util.ArrayList;
 
 /**
- *
- * @author amalvagomes
+ * <p><code>LookStrategy</code> is an implementation of the<code>VerbStrategy</code>
+ *      interface.</p>
  */
 public class LookStrategy implements VerbStrategy {
 
+    /**
+     * <p>The <code>doCommand()</code> method handles calls, which are put forth
+     *      when a caller wishes to look around the current {@link Location}.
+     *      A description of the {@link Location} is printed to the screen,
+     *      as well as a list of all the visible {@link Item}s in the 
+     *      {@link Location}. When the strategy is called, it is already determined 
+     *      that this is the correct strategy to use, so a 
+     *      <code>DoNotUnderStandException</code> does not need to be thrown.</p>
+     * @param c The command that needs to be processed.
+     * @param e The game engine, which this target may use to change the state
+     *      of the game appropriately if it must in order to process the command.
+     * @param w The input/output window, which this target may use to print
+     *      text to the terminal if it must in order to process the command.
+     * @author ApertureScience
+     */
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         w.println(e.getPlayerLocation().getDescription());
         String output = "You can see ";

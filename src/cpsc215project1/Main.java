@@ -2,12 +2,9 @@ package cpsc215project1;
 
 /**
  *
- * @author amalvag
+ * @author ApertureScience
  */
 import edu.clemson.cs.hamptos.adventure.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Main {
