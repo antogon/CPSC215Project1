@@ -78,11 +78,11 @@ public class Location implements AdventureLocation {
             AdventureWindow w) throws DoNotUnderstandException {
         if (c.getVerb().equals("look")) {
             new LookStrategy().doCommand(c, e, w);
-        }
-        else if (c.getVerb().equals("inventory")) {
+        } else if (c.getVerb().equals("inventory")) {
             new InventoryStrategy().doCommand(c, e, w);
+        } else {
+            throw new DoNotUnderstandException(c);
         }
-        else { throw new DoNotUnderstandException(c); }
     }
 
     /**
@@ -105,6 +105,7 @@ public class Location implements AdventureLocation {
     public void updateDescription(String iDiscription) {
         myUpdatedDescription = myDescription + "\n" + iDiscription;
     }
+
     /**
      * <p>Returns a list of the local targets in a given
      * <code>Location</code>.
@@ -113,6 +114,7 @@ public class Location implements AdventureLocation {
     public Set<AdventureTarget> getLocalTargets() {
         return myLocalTargets;
     }
+
     /**
      * <p>Removes a specified target from the list of local targets.</p>
      * @param t The <code>Target</code> to be removed.
@@ -120,6 +122,7 @@ public class Location implements AdventureLocation {
     public void removeLocalTarget(AdventureTarget t) {
         myLocalTargets.remove(t);
     }
+
     /**
      * <p>Returns the name of the <code>Location</code>.</p>
      * @return The name of the <code>Location</code>
@@ -127,6 +130,7 @@ public class Location implements AdventureLocation {
     public String getName() {
         return myName;
     }
+
     /**
      * <p>Returns a clone of the world.</p>
      * @return The clone of the world.
