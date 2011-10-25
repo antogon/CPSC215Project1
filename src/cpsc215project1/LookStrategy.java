@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 /**
  *
- * @author amalvagomes
+ * @author Aperture Science
  */
 public class LookStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         w.println(e.getPlayerLocation().getDescription());
-        String output = "You can see ";
+        String output = "You can see:\n";
         int ndx = 0;
         int size = 0;
         ArrayList<AdventureTarget> visibleItems = new ArrayList<AdventureTarget>();
@@ -28,25 +28,8 @@ public class LookStrategy implements VerbStrategy {
         
         size = visibleItems.size();
 
-        for (AdventureTarget t : visibleItems) {
-            if (size > 2) {
-                if (ndx < size - 1) {
-                    output += t.getShortDescription() + ", ";
-                    ndx++;
-                } else {
-                    output += "and " + t.getShortDescription() + ".";
-                }
-            } else if (size == 1) {
-                output += t.getShortDescription() + ".";
-            } else if (size == 2) {
-                if (ndx == 0) {
-                    output += t.getShortDescription() + " and ";
-                    ndx++;
-                } else {
-                    output += t.getShortDescription() + ".";
-                }
-            }
-
+        for (AdventureTarget t: visibleItems){
+            output += "\t - " + t.getShortDescription() + "\n";
         }
         w.println(output);
 

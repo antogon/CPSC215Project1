@@ -18,7 +18,7 @@ public class InventoryStrategy implements VerbStrategy {
 
     public void doCommand(AdventureCommand c, AdventureEngine e, AdventureWindow w) {
         w.println("Player Inventory");
-        w.println("******************************");
+        w.println("=================");
 
         for (AdventureTarget t : e.getPlayerInventory()) {
             w.println(t.getShortDescription());

@@ -2,12 +2,12 @@
 	<Location
 		name="Phonebooth"
 		desc="You are in a tiny glass phonebooth.  The windows are too 
-dirty for you to see outside."
+                      dirty for you to see outside."
             isInit = "Initial Location"
 	>
 		<Item
 			name="phone"
-			desc="It has a slot for quarters and seems to just barely
+			desc="It has a slot for use with quarters and seems to just barely
                                hang on the wall..."
                         usesIO="You put a quarter into the coin slot and it starts ringing.
                         This isn't how phones work but you figure you should answer it anyway.
@@ -19,15 +19,16 @@ dirty for you to see outside."
                                 really should concentrate on escaping this glass prison.  Another
                                 look around probably wouldn't hurt anything...|answer|
                                 You notice a reflection in the glass;"
-			canDo="break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
+			canDo="put=>use, look=>examine, break=>damage, hit=>damage, examine=>examine, damage=>damage, visible=>reflection"
 			canBe="answer, use, examine, damage"
                         aliases="telephone, phone, receiver"
 		>
 		</Item>
+
                 <Item
 			name="quarter"
 			desc="You feel sure you could get 25 pennies for this."
-			canDo="get=>take, examine=>examine, take=>take, drop=>drop"
+			canDo="put=>use, look=>examine, get=>take, examine=>examine, take=>take, drop=>drop"
 			canBe="answer, take, examine, use, drop"  
                         aliases="coin"
 		>
@@ -35,7 +36,7 @@ dirty for you to see outside."
                 <Item
 			name="crowbar"
 			desc="A long, hard, steel rod of pain."
-			canDo="break=>damage, take=>take, drop=>drop, use=>use, examine=>examine"
+			canDo="look=>examine, break=>damage, take=>take, drop=>drop, use=>use, examine=>examine"
 			canBe="take, drop, use, examine"
                         aliases=""
                         visibility="false"
@@ -45,12 +46,10 @@ dirty for you to see outside."
 			name="reflection"
 			desc="You can barely make out the grimy reflection of your
                                face in the dingy glass.  Still, you are awestruck by your
-                                overwhelming beauty."
-			canDo="break=>damage, visible=>crowbar, invisible=>reflection"
-			canBe="damage, yo"
-                        usesDO="You can barely make out the grimy reflection of your
-                               face in the dingy glass but you are still awestruck by your
-                                overwhelming beauty. Upon closer inspection you notice something
+                                overwhelming beauty. You feel compelled to examine the reflection further..."
+			canDo="look=>examine, break=>damage, visible=>crowbar, invisible=>reflection"
+			canBe="damage, examine"
+                        usesDO="Upon closer inspection you notice something
                                 under your nose.  You go to pick it and a crowbar falls out of
                                 your nose and hits the ground.|examine|Time to show that
                                 door who is boss!;"
@@ -65,7 +64,7 @@ dirty for you to see outside."
                               While the memories of the singing cowboy make you feel more than
                               a little nostalgic, you should probably focus on getting out
                               of this phone booth..."
-                        canDo="examine=>examine, damage=>damage, take=>take, get=>take"
+                        canDo="look=>examine, examine=>examine, damage=>damage, take=>take, get=>take"
                         canBe="examine, damage, take"
                         aliases="photo, gene, cowboy"
                         visibility="true"
@@ -78,7 +77,7 @@ dirty for you to see outside."
 			desc="It is an old sliding door and while it is quite
                               ornate in design it appears to be jammed. However,
                               its seems that you could easily force it open if you had the right tool..."
-			canDo="use=>open, close=>close, enter=>Space, examine=>examine"
+			canDo="look=>examine, use=>open, close=>close, enter=>Space, examine=>examine"
 			canBe="open, close, use, examine"
                         usesIO="You swing with all of the speed that a confined space will allow you
                                 and manage to lodge the crowbar into the crack in the door.  You pry
@@ -100,7 +99,7 @@ seconds of your life before you pass out and die, unless of course
             <Item
                 name="planet"
                 desc="What appears to be the planet Mars is floating peacefully and indifferently through the vast void of space."
-                canDo="examine=>examine, take=>take"
+                canDo="look=>examine, examine=>examine, take=>take"
                 canBe="examine, take"
                 aliases="globe, sphere, mars"
             >
@@ -114,7 +113,7 @@ seconds of your life before you pass out and die, unless of course
                        even though you are floating in the void of space.  You are saddened
                         that these are the last sounds you will ever hear. You have an overwhelming
                         desire to attempt to pet the cat as it passes by..."
-                canDo="examine=>examine, take=>take, pet=>use"
+                canDo="look=>examine, examine=>examine, take=>take, pet=>use"
                 canBe="examine, take, use"
                 alisases="nyan, feline, annoying, fuck"
                 usesDO="NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN NYAN!!!!!111
@@ -129,7 +128,7 @@ seconds of your life before you pass out and die, unless of course
                                 to be in good condition, however, a hand sewn patch
                                  on the leg gives you pause.
                                  In a cruel twist of fate it is just beyond your reach."
-			canDo="break=>damage, examine=>examine"
+			canDo="look=>examine, break=>damage, examine=>examine"
 			canBe="damage, examine"
                         aliases="suit, space suit"
                         usesDO="You kick the hard metal helmet, stubbing your toe.
@@ -141,7 +140,7 @@ seconds of your life before you pass out and die, unless of course
                 name="horse"
                 desc="To your left there is a horse who is grinning oddly.
                       You find the horse to be amazing and you have an overwhelming desire to lick it."
-                canDo="examine=>examine, take=>take"
+                canDo="look=>examine, examine=>examine, take=>take"
                 canBe="examine, take"
                 alisases="thoroughbred, equine, beast"
                 usesDO="It tastes just like raisins.
@@ -153,7 +152,7 @@ seconds of your life before you pass out and die, unless of course
                 name="phonebooth"
                 desc="The phone booth you stepped out of has floated beyond your reach.
                       You wonder where it is going and why you left it in the first place..."
-                canDo="examine=>examine, damage=>damage"
+                canDo="look=>examine, examine=>examine, damage=>damage"
                 canBe="examine, damage"
                 alisases="booth, TARDIS"
             >
@@ -164,7 +163,7 @@ seconds of your life before you pass out and die, unless of course
                       slowly in its general direction. It will need to be opened if
                       you hope to espace through it..."
                 canBe="open, close, examine, use"
-                canDo="enter=>Lab, use=>open, examine=>examine"
+                canDo="look=>examine, enter=>Lab, use=>open, examine=>examine"
                 aliases="hole, portal, blackhole"
                 usesIO="Upon waving the wand a great light bursts from the portal
                         and as time seems to bend and change your body.  You are certain you
@@ -177,7 +176,7 @@ seconds of your life before you pass out and die, unless of course
 			name="wand"
 			desc="An magical device that immediatley dazzles your eyes.  It
                                 seems to call to you.  Perhaps it can help you escape certain death!"
-			canDo="examine=>examine, break=>damage, take=>take, drop=>drop, use=>use"
+			canDo="look=>examine, examine=>examine, break=>damage, take=>take, drop=>drop, use=>use"
 			canBe="take, drop, use, examine"
                         aliases=""
                         visibility="true"
@@ -200,7 +199,7 @@ seconds of your life before you pass out and die, unless of course
                         After you spoke to the man, the other people in the room appear to have a
                         newfound respect for you.;"
                 canBe="examine, damage"
-                canDo="examine=>examine, damage=>damage"
+                canDo="look=>examine, examine=>examine, damage=>damage"
             >
             </Person>
             <Portal
@@ -222,7 +221,7 @@ seconds of your life before you pass out and die, unless of course
                       to help make sense of all this..."
                 aliases="ubuntu, dell, thankgoditsnotrunningunity"
                 canBe="take, drop, use, examine"
-                canDo="damage=>damage, sudorm-rfv=>damage, take=>take, drop=>drop, examine=>examine"
+                canDo="look=>examine, damage=>damage, sudorm-rfv=>damage, take=>take, drop=>drop, examine=>examine"
                 usesDO="The terminal prints out one statement and one statement only.
                         /nfork while fork/nfork while fork/nfork while fork/nfork while fork/n....So much for that idea.
                         |use|The walls of the lab are shaking from the wrath of the

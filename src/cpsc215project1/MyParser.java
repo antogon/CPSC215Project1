@@ -9,6 +9,7 @@ import edu.clemson.cs.hamptos.adventure.AdventureEngine;
 import edu.clemson.cs.hamptos.adventure.AdventureParser;
 import edu.clemson.cs.hamptos.adventure.AdventureTarget;
 import edu.clemson.cs.hamptos.adventure.NoSuchTargetException;
+import edu.clemson.cs.hamptos.adventure.AdventureWindow;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -54,6 +55,7 @@ public class MyParser implements AdventureParser {
         //takes fist word in incomming command string as the output command verb
         verb = parser.next();
 
+       
         //driver to parse input command string
         while (parser.hasNext()) {
 
